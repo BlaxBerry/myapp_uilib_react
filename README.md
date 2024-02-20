@@ -5,7 +5,7 @@ Personal UI Component Library for React.
 ## Quick Start
 
 ```tsx
-yarn add "git+https://github.com/BlaxBerry/myapp_uilib_react.git#main"
+yarn add git+https://github.com/BlaxBerry/myapp_uilib_react
 ```
 
 ## Tech Stacks
@@ -61,3 +61,11 @@ yarn format             # format code
 
 - [How to Write Stories](./docs/writeStories.md)
 - [Change Log](./docs/changeLog.md)
+
+## Dev Flow
+
+```shell
+yarn build:lib
+git commit -m "MESSAGE"
+git push
+```
