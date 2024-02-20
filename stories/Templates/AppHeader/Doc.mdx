@@ -1,0 +1,73 @@
+import { Meta, Title, Subtitle, Controls, Story } from "@storybook/blocks";
+import * as Stories from "./index.stories";
+
+<Meta of={Stories} />
+
+<Title>\<AppHeader></Title>
+
+<Subtitle>应用的顶部 Header</Subtitle>
+
+```tsx
+import { AppHeader, type AppHeaderProps } from "myapp_uilib_react";
+```
+
+<Controls />
+
+## 基本使用
+
+<Story of={Stories.BaseExample} />
+
+```tsx
+import React from "react";
+import { AppHeader, type AppHeaderProps } from "myapp_uilib_react";
+
+function App() {
+  return (
+    <>
+      <AppHeader
+        headerHeight={50}
+        headerContainerMaxWidth="lg"
+        logo={<HeaderLogo />}
+        title="Xxx"
+        navItems={headerNavItems}
+      />
+
+      <p>page content</p>
+      <p>page content</p>
+    </>
+  );
+}
+
+const HeaderLogo: React.FC = () => (
+  <img
+    src="https://iconape.com/wp-content/files/qa/371510/svg/371510.svg"
+    alt="logo"
+    style={{ display: "inline-block", height: "35px" }}
+  />
+);
+
+const headerNavItems: AppHeaderProps["navItems"] = [
+  {
+    item: "A",
+    link: "xx",
+    onClick: () => console.log("clicked A"),
+  },
+  {
+    item: "B",
+    link: "xx",
+    onBlur: () => console.log("focused on B"),
+  },
+];
+```
+
+<style>
+  {`
+    /* personal code bloack */
+    .my-code-block {
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  `}
+</style>

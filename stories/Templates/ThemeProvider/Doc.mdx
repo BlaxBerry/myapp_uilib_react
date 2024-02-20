@@ -1,0 +1,45 @@
+import { Meta, Title, Subtitle, Controls, Story } from "@storybook/blocks";
+import * as Stories from "./index.stories";
+
+<Meta of={Stories} />
+
+<Title>\<ThemeProvider></Title>
+
+<Subtitle>应用的主题 Provider</Subtitle>
+
+```tsx
+import { ThemeProvider, type ThemeProviderProps } from "myapp_uilib_react";
+```
+
+<Controls />
+
+## 基本使用
+
+<div className="my-code-block">
+  <Story of={Stories.BaseExample} />
+</div>
+
+```tsx
+import React from "react";
+import { ThemeProvider } from "myapp_uilib_react";
+
+function App() {
+  return (
+    <ThemeProvider>
+      <!-- 其他组件 -->
+    </ThemeProvider>
+  );
+}
+```
+
+<style>
+  {`
+    /* personal code bloack */
+    .my-code-block {
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  `}
+</style>

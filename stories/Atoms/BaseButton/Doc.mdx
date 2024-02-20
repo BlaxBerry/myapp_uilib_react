@@ -1,0 +1,77 @@
+import { Meta, Title, Subtitle, Controls, Story } from "@storybook/blocks";
+import * as Stories from "./index.stories";
+
+<Meta of={Stories} />
+
+<Title>\<BaseButton></Title>
+
+<Subtitle>基础 Button 按钮</Subtitle>
+
+```tsx
+import { BaseButton, type BaseButtonProps } from "myapp_uilib_react";
+```
+
+<Controls />
+
+## 基本使用
+
+<div className="my-code-block">
+  <Story of={Stories.BaseExample} />
+</div>
+
+```tsx
+import React from "react";
+import { BaseButton } from "myapp_uilib_react";
+
+function App() {
+  return <BaseButton>xxx</BaseButton>;
+}
+```
+
+## 成功、失败
+
+<div className="my-code-block">
+  <Story of={Stories.SuccessExample} />
+  <Story of={Stories.ErrorExample} />
+</div>
+
+```tsx
+import React from "react";
+import { BaseButton } from "myapp_uilib_react";
+
+function App() {
+  return (
+    <>
+      <BaseButton success>xxx</BaseButton>
+      <BaseButton error>xxx</BaseButton>
+    </>
+  );
+}
+```
+
+## 加载中
+
+<div className="my-code-block">
+  <Story of={Stories.LoadingExample} />
+</div>
+
+```tsx
+import React from "react";
+import { BaseButton } from "myapp_uilib_react";
+
+function App() {
+  return <BaseButton loading>xxx</BaseButton>;
+}
+```
+
+<style>
+  {`
+    /* personal code bloack */
+    .my-code-block {
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  `}
+</style>

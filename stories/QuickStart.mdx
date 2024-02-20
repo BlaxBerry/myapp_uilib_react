@@ -1,0 +1,36 @@
+import { Meta, Title, Subtitle } from "@storybook/blocks";
+
+import ImgAtomicDesign from "./assets/images/atomic-design.png";
+
+<Meta title="Quick Start" />
+
+<Title>MyApp UI Lib ( React )</Title>
+
+<Subtitle>个人练习用的 React UI 组件库</Subtitle>
+
+## 安装
+
+```tsx
+yarn add "git+https://github.com/BlaxBerry/myapp_uilib_react.git#main"
+```
+
+## 设计
+
+### Atomic Design
+
+<img src={ImgAtomicDesign} alt="Atomic Design" />
+
+### 主题风格
+
+```tsx
+import React from "react";
+import { ThemeProvider } from "myapp_uilib_react";
+
+function App() {
+  return (
+    <ThemeProvider>
+      <!-- 其他组件 --->
+    </ThemeProvider>
+  );
+}
+```
