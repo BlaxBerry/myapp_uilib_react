@@ -16,7 +16,7 @@ const meta = {
     layout: "fullscreen",
   },
   argTypes: {
-    isDark: {
+    isDarkMode: {
       description: "是否为黑暗主题 ( dark mode )",
       table: {
         type: { summary: "boolean" },
@@ -24,7 +24,7 @@ const meta = {
       },
       control: { type: "boolean" },
     },
-    themePaletteName: {
+    paletteName: {
       description:
         "自定义主题调色板的颜色名 ( 不指定即`undefined`时为MUI默认颜色 )",
       table: {
@@ -43,8 +43,8 @@ const meta = {
     },
   },
   args: {
-    isDark: false,
-    themePaletteName: undefined,
+    isDarkMode: false,
+    paletteName: undefined,
   },
 } satisfies Meta<typeof ThemeProviderComponent>;
 

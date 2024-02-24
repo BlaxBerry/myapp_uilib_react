@@ -24,10 +24,7 @@ import {
   LogoTitle,
   NavItemsListMobileScreen,
   NavItemsListPCScreen,
-  SettingsItems,
   SettingsItemsWrapperPCScreen,
-  type AppHeaderSettingDarkModeSwitcher,
-  type AppHeaderSettingPaletteColorSwitcher,
   type AppHeaderSocialLinkIcon,
 } from "./widgets";
 
@@ -88,18 +85,12 @@ export type AppHeaderSocialLinkItem = {
 };
 
 export type AppHeaderSettingsOptions = {
-  /**
-   * 是否使用默认的黑暗模式切换组件
-   * @default false
-   */
-  DarkModeSwitcher?: AppHeaderSettingDarkModeSwitcher;
-  /**
-   * 是否使用默认的主题色调切换器组件
-   * @default false
-   */
-  PaletteColorSwitcher?: AppHeaderSettingPaletteColorSwitcher;
-  /** 自定义内容 */
-  customOptions?: ReactNode;
+  /** 黑暗模式切换器 */
+  DarkModeSwitcher?: ReactNode;
+  /** 自定义调色板切换器 */
+  PaletteSwitcher?: ReactNode;
+  /** 自定义设置选项 */
+  CustomOptions?: ReactNode;
 };
 
 const AppHeader: FC<Props> = ({
@@ -113,10 +104,7 @@ const AppHeader: FC<Props> = ({
   navItemsOptionTitle = "Nav Items",
   socialLinks,
   copyright,
-  settingsOptions = {
-    DarkModeSwitcher: undefined,
-    PaletteColorSwitcher: undefined,
-  },
+  settingsOptions,
   settingsOptionTitle = "Settings",
   AppBarProps,
   sx,
@@ -204,7 +192,9 @@ const AppHeader: FC<Props> = ({
                     isOpen={isOpenSettingsMenuPCScreen}
                     handleCloseMenu={handleCloseSettingsMenuPCScreen}
                   >
-                    <SettingsItems settingsOptions={settingsOptions} />
+                    {settingsOptions.DarkModeSwitcher}
+                    {settingsOptions.PaletteSwitcher}
+                    {settingsOptions.CustomOptions}
                   </SettingsItemsWrapperPCScreen>
 
                   {/* settings items menu button list in PC screen */}

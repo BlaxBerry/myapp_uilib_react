@@ -6,11 +6,7 @@ export { default as NavItemsListMobileScreen } from "./NavItemsListMobileScreen"
 export { default as NavItemsListPCScreen } from "./NavItemsListPCScreen";
 
 // settings items
-export {
-  default as SettingsItems,
-  type AppHeaderSettingDarkModeSwitcher,
-  type AppHeaderSettingPaletteColorSwitcher,
-} from "./SettingsItems";
+
 export { default as SettingsItemsWrapperPCScreen } from "./SettingsItemsWrapperPCScreen";
 
 // social links

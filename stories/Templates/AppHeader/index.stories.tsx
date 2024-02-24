@@ -3,6 +3,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
 import AppHeaderComponent from "../../../src/AppHeader";
+import {
+  ThemeDarkModeSwitcher,
+  ThemePaletteSwitcher,
+} from "../../../src/ThemeSwitchers";
 
 const meta = {
   title: "Layouts/AppHeader",
@@ -142,24 +146,24 @@ const meta = {
       { icon: <StarIcon />, link: "" },
     ],
     settingsOptions: {
-      DarkModeSwitcher: {
-        text: "切换黑暗模式",
-        isDarkMode: false,
-        onChange: (value) => {
-          console.log(value);
-        },
-      },
-      PaletteColorSwitcher: {
-        text: "切换主题色",
-        paletteColorName: "VIOLET",
-        onChange: (value) => {
-          console.log(value);
-        },
-      },
-      customOptions: (
-        <div style={{ padding: "16px" }}>
-          <section>Other Setting's Option</section>
-          <section>Other Setting's Option</section>
+      DarkModeSwitcher: (
+        <ThemeDarkModeSwitcher
+          labelText={"切换主题模式"}
+          value={true}
+          onChange={(v) => console.log(v)}
+        />
+      ),
+      PaletteSwitcher: (
+        <ThemePaletteSwitcher
+          labelText={"切换主题色调"}
+          value="VIOLET"
+          onChange={(v) => console.log(v)}
+        />
+      ),
+      CustomOptions: (
+        <div>
+          <section>CustomOption</section>
+          <section>CustomOption</section>
         </div>
       ),
     },

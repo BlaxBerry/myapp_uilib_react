@@ -12,16 +12,16 @@ import { samplePalettes, type SamplePaletteName } from "../themes";
 export type Props = PropsWithChildren<{
   themeOptions?: ThemeOptions;
   /** 是否为黑暗模式 */
-  isDark?: boolean;
+  isDarkMode?: boolean;
   /** 自定义主题调色板的颜色名 */
-  themePaletteName?: SamplePaletteName;
+  paletteName?: SamplePaletteName;
 }>;
 
 const ThemeProvider: FC<Props> = ({
   children,
   themeOptions,
-  isDark = false,
-  themePaletteName,
+  isDarkMode = false,
+  paletteName,
 }) => {
   const theme = useMemo(
     () =>
@@ -29,12 +29,12 @@ const ThemeProvider: FC<Props> = ({
         palette: {
           ...themeOptions,
           // 明亮or黑暗主题模式
-          mode: isDark ? "dark" : "light",
+          mode: isDarkMode ? "dark" : "light",
           // 自定义主题色调
-          ...(themePaletteName ? samplePalettes[themePaletteName] : {}),
+          ...(paletteName ? samplePalettes[paletteName] : {}),
         },
       }),
-    [themeOptions, isDark, themePaletteName],
+    [themeOptions, isDarkMode, paletteName],
   );
 
   return (

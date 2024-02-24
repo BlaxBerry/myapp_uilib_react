@@ -2,7 +2,7 @@ import { type FocusEventHandler, type MouseEventHandler, type PropsWithChildren,
 import { type AppBarProps } from "@mui/material/AppBar";
 import { type ContainerProps } from "@mui/material/Container";
 import { type SxProps } from "@mui/material/styles";
-import { type AppHeaderSettingDarkModeSwitcher, type AppHeaderSettingPaletteColorSwitcher, type AppHeaderSocialLinkIcon } from "./widgets";
+import { type AppHeaderSocialLinkIcon } from "./widgets";
 export type Props = PropsWithChildren<{
     /**
      * 固定高度
@@ -57,18 +57,12 @@ export type AppHeaderSocialLinkItem = {
     link: string;
 };
 export type AppHeaderSettingsOptions = {
-    /**
-     * 是否使用默认的黑暗模式切换组件
-     * @default false
-     */
-    DarkModeSwitcher?: AppHeaderSettingDarkModeSwitcher;
-    /**
-     * 是否使用默认的主题色调切换器组件
-     * @default false
-     */
-    PaletteColorSwitcher?: AppHeaderSettingPaletteColorSwitcher;
-    /** 自定义内容 */
-    customOptions?: ReactNode;
+    /** 黑暗模式切换器 */
+    DarkModeSwitcher?: ReactNode;
+    /** 自定义调色板切换器 */
+    PaletteSwitcher?: ReactNode;
+    /** 自定义设置选项 */
+    CustomOptions?: ReactNode;
 };
 declare const AppHeaderMemo: import("react").NamedExoticComponent<Props>;
 export default AppHeaderMemo;

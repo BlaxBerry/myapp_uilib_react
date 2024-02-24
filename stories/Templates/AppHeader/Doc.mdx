@@ -28,6 +28,8 @@ import React from "react";
 import StarIcon from "@mui/icons-material/Star";
 import {
   AppHeader,
+  ThemeDarkModeSwitcher,
+  ThemePaletteSwitcher,
   type AppHeaderProps,
   type AppHeaderNavItem,
   type AppHeaderSocialLinkItem,
@@ -97,24 +99,24 @@ const socialLinks: Array<AppHeaderSocialLinkItem> = [
 ];
 
 const settingsOptions: AppHeaderSettingsOptions = {
-  DarkModeSwitcher: {
-    text: "切换黑暗模式",
-    isDarkMode: false,
-    onChange: (value) => {
-      console.log(value);
-    },
-  },
-  PaletteColorSwitcher: {
-    text: "切换主题色",
-    paletteColorName: "VIOLET",
-    onChange: (value) => {
-      console.log(value);
-    },
-  },
-  customOptions: (
-    <div style={{ padding: "16px" }}>
-      <section>Other Setting's Option</section>
-      <section>Other Setting's Option</section>
+  DarkModeSwitcher: (
+    <ThemeDarkModeSwitcher
+      labelText={"切换主题模式"}
+      value={true}
+      onChange={(v) => console.log(v)}
+    />
+  ),
+  PaletteSwitcher: (
+    <ThemePaletteSwitcher
+      labelText={"切换主题色调"}
+      value="VIOLET"
+      onChange={(v) => console.log(v)}
+    />
+  ),
+  CustomOptions: (
+    <div>
+      <section>CustomOption</section>
+      <section>CustomOption</section>
     </div>
   ),
 };

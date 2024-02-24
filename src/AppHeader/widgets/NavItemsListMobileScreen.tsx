@@ -10,7 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 
-import { SettingsItems, SocialLinkItems } from ".";
+import { SocialLinkItems } from ".";
 import type { Props as AppHeaderProps } from "..";
 import Accordion from "../../Accordion";
 
@@ -76,7 +76,9 @@ const NavItemsListMobileScreen: FC<
         {/* settings items list in mobile screen */}
         {settingsOptions && (
           <Accordion title={settingsOptionTitle}>
-            <SettingsItems settingsOptions={settingsOptions} />
+            {settingsOptions.DarkModeSwitcher}
+            {settingsOptions.PaletteSwitcher}
+            {settingsOptions.CustomOptions}
           </Accordion>
         )}
       </List>
