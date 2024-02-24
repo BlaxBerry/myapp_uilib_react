@@ -13,6 +13,7 @@ export type Props = Partial<{
     error: FormControlProps["error"];
     errorText: string;
     sx: SxProps;
+    size: BaseInputProps["size"];
     value: BaseInputProps["value"];
     onChange: BaseInputProps["onChange"];
 }>;
@@ -27,6 +28,7 @@ declare const FormItemMemo: import("react").NamedExoticComponent<Partial<{
     error: FormControlProps["error"];
     errorText: string;
     sx: SxProps;
+    size: BaseInputProps["size"];
     value: BaseInputProps["value"];
     onChange: BaseInputProps["onChange"];
 }>>;

@@ -1,28 +1,27 @@
-import React from "react";
+import { memo, useMemo, type FC } from "react";
 
 import MuiBox from "@mui/material/Box";
 import MuiButton, { type ButtonProps } from "@mui/material/Button";
 import MuiCircularProgress from "@mui/material/CircularProgress";
 
-export interface Props extends React.PropsWithChildren<ButtonProps> {
-  error?: boolean;
-  success?: boolean;
+export interface Props extends ButtonProps {
+  /** 是否处于加载中 */
   loading?: boolean;
+  /** 是否采用次要的主题色 */
+  secondary?: boolean;
 }
 
-const BaseButton: React.FC<Props> = ({
-  error,
-  success,
-  loading,
+const BaseButton: FC<Props> = ({
   children,
+  loading = false,
+  secondary = false,
   ...props
 }) => {
-  const color = React.useMemo<Props["color"]>(() => {
-    if (error) return "error";
-    else if (success) return "success";
+  const color = useMemo<Props["color"]>(() => {
+    if (secondary) return "secondary";
     else if (props.color) return props.color;
     else return "primary";
-  }, [props.color, error, success]);
+  }, [props.color, secondary]);
 
   return (
     <MuiBox
@@ -34,9 +33,10 @@ const BaseButton: React.FC<Props> = ({
     >
       <MuiButton
         variant="contained"
+        size="medium"
+        color={color}
         disabled={loading}
         {...props}
-        color={color}
       >
         <MuiBox sx={{ opacity: loading ? 0 : 1 }}>{children}</MuiBox>
       </MuiButton>
@@ -64,5 +64,5 @@ const BaseButton: React.FC<Props> = ({
   );
 };
 
-const BaseButtonMemo = React.memo(BaseButton);
+const BaseButtonMemo = memo(BaseButton);
 export default BaseButtonMemo;

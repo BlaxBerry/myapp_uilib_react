@@ -26,6 +26,15 @@ const meta = {
         defaultValue: { summary: "false" },
       },
     },
+    secondary: {
+      description: "是否采用次要的主题色",
+      control: { type: "boolean" },
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: "false" },
+      },
+    },
+
     disabled: {
       description: "是否禁止点击",
       control: { type: "boolean" },
@@ -34,44 +43,26 @@ const meta = {
         defaultValue: { summary: "false" },
       },
     },
-    error: {
-      description:
-        "是否为`error`颜色的按钮，优先级：`props.error`>`props.success`>`props.color`",
-      control: { type: "boolean" },
-      table: {
-        defaultValue: { summary: "false" },
-      },
-    },
-    success: {
-      description:
-        "是否为`success`颜色的按钮，优先级：`props.error`>`props.success`>`props.color`",
-      control: { type: "boolean" },
-      table: {
-        defaultValue: { summary: "false" },
-      },
-    },
-    variant: {
-      description: "按钮样式",
-      control: { type: "select" },
-      options: ["contained", "outlined", "text"],
-      table: {
-        type: { summary: "contained|outlined|text" },
-        defaultValue: { summary: "contained" },
-      },
-    },
-    size: {
-      description: "按钮尺寸",
-      control: { type: "select" },
-      options: ["small", "medium", "large"],
-      table: {
-        type: { summary: "small|medium|large" },
-        defaultValue: { summary: "medium" },
-      },
-    },
-    // color: {
-    //   description:
-    //     "按钮内置颜色，优先级：`props.error`>`props.success`>`props.color`",
+    // variant: {
+    //   description: "MUI 属性，按钮样式",
     //   control: { type: "select" },
+    //   options: ["contained", "outlined", "text"],
+    //   table: {
+    //     type: { summary: "contained|outlined|text" },
+    //     defaultValue: { summary: "contained" },
+    //   },
+    // },
+    // size: {
+    //   description: "MUI 属性，按钮尺寸",
+    //   control: { type: "select" },
+    //   options: ["small", "medium", "large"],
+    //   table: {
+    //     type: { summary: "small|medium|large" },
+    //     defaultValue: { summary: "medium" },
+    //   },
+    // },
+    // color: {
+    //   description: "MUI 属性，按钮内置颜色,
     //   options: [
     //     "primary",
     //     "secondary",
@@ -91,11 +82,8 @@ const meta = {
   args: {
     children: "xxxx",
     loading: false,
+    secondary: false,
     disabled: false,
-    error: false,
-    success: false,
-    variant: "contained",
-    size: "medium",
   },
 } satisfies Meta<typeof BaseButtonComponent>;
 
@@ -105,33 +93,23 @@ export const BaseExample: StoryObj<typeof meta> = {
   name: "基本使用",
 };
 
-export const SuccessExample: StoryObj<typeof meta> = {
-  name: "成功状态",
-  parameters: {
-    controls: {
-      include: ["children", "variant", "size"],
-    },
-  },
-  args: {
-    success: true,
-  },
+export const PrimaryExample: StoryObj<typeof meta> = {
+  name: "主要主题色",
+  parameters: { controls: { include: ["children"] } },
+  args: { secondary: false, children: "主要主题色" },
 };
 
-export const ErrorExample: StoryObj<typeof meta> = {
-  name: "失败状态",
-  parameters: {
-    controls: {
-      include: ["children", "variant", "size"],
-    },
-  },
-  args: { error: true },
+export const SecondaryExample: StoryObj<typeof meta> = {
+  name: "次要主题色",
+  parameters: { controls: { include: ["children"] } },
+  args: { secondary: true, children: "次要主题色" },
 };
 
 export const LoadingExample: StoryObj<typeof meta> = {
   name: "加载中",
   parameters: {
     controls: {
-      include: ["children", "variant", "size"],
+      include: ["children"],
     },
   },
   args: {

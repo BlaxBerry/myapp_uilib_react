@@ -4,9 +4,11 @@
 
 ## v0.0.0-alpha
 
-- BaseInput
 - BaseButton
+- BaseInput
 - FormItem
+- Accordion
+- FileUploadHiddenInput
 - ControlledDialog
 - UncontrolledDialog
 - AppHeader

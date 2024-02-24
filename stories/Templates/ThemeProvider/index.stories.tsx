@@ -1,7 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
+import React, { Fragment } from "react";
 
-import ThemeProviderComponent from "../../../src/ThemeProvider";
+import AppHeader from "../../../src/AppHeader";
+import BaseButton, {
+  type Props as BaseButtonProps,
+} from "../../../src/Buttons/BaseButton";
+import BaseInput from "../../../src/FormFields/BaseInput";
+import ThemeProviderComponent from "../../../src/ThemeProvider/widget";
+import AppHeaderStoryMeta from "../AppHeader/index.stories";
 
 const meta = {
   title: "Layouts/ThemeProvider",
@@ -18,9 +24,27 @@ const meta = {
       },
       control: { type: "boolean" },
     },
+    themePaletteName: {
+      description:
+        "自定义主题调色板的颜色名 ( 不指定即`undefined`时为MUI默认颜色 )",
+      table: {
+        type: { summary: "TEAL|INDIGO|VIOLET|CRIMSON" },
+        defaultValue: { summary: "undefined" },
+      },
+      control: { type: "radio" },
+      options: ["鸭羽青色", "靛青色", "紫罗兰色", "绯红色", "MUI默认"],
+      mapping: {
+        鸭羽青色: "TEAL",
+        靛青色: "INDIGO",
+        紫罗兰色: "VIOLET",
+        绯红色: "CRIMSON",
+        MUI默认: "undefined",
+      },
+    },
   },
   args: {
     isDark: false,
+    themePaletteName: undefined,
   },
 } satisfies Meta<typeof ThemeProviderComponent>;
 
@@ -31,6 +55,30 @@ export const BaseExample: StoryObj<typeof meta> = {
   render: (args) => {
     const handle = React.useCallback(() => {}, []);
 
-    return <ThemeProviderComponent {...args}>xxx</ThemeProviderComponent>;
+    return (
+      <ThemeProviderComponent {...args}>
+        <h3>Header</h3>
+        <AppHeader {...AppHeaderStoryMeta.args} />
+
+        <h3>BaseInput</h3>
+        <BaseInput />
+
+        <h3>BaseButtons</h3>
+        {(["primary", "secondary"] as Array<BaseButtonProps["color"]>).map(
+          (color) => (
+            <Fragment key={color}>
+              <BaseButton color={color}>{color}</BaseButton>
+              <BaseButton color={color} variant="outlined">
+                {color}
+              </BaseButton>
+              <BaseButton color={color} variant="text">
+                {color}
+              </BaseButton>
+              <br />
+            </Fragment>
+          ),
+        )}
+      </ThemeProviderComponent>
+    );
   },
 };

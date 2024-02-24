@@ -28,11 +28,11 @@ function App() {
 }
 ```
 
-## 成功、失败
+## 主要、次要主题色
 
 <div className="my-code-block">
-  <Story of={Stories.SuccessExample} />
-  <Story of={Stories.ErrorExample} />
+  <Story of={Stories.PrimaryExample} />
+  <Story of={Stories.SecondaryExample} />
 </div>
 
 ```tsx
@@ -42,8 +42,8 @@ import { BaseButton } from "myapp_uilib_react";
 function App() {
   return (
     <>
-      <BaseButton success>xxx</BaseButton>
-      <BaseButton error>xxx</BaseButton>
+      <BaseButton>主要主题色</BaseButton>
+      <BaseButton secondary>次要主题色</BaseButton>
     </>
   );
 }
@@ -66,7 +66,7 @@ function App() {
 
 <style>
   {`
-    /* personal code bloack */
+    /* personal code block */
     .my-code-block {
       height: 100px;
       display: flex;

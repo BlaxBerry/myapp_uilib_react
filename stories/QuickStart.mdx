@@ -1,6 +1,7 @@
 import { Meta, Title, Subtitle } from "@storybook/blocks";
 
 import ImgAtomicDesign from "./assets/images/atomic-design.png";
+import { samplePalettes } from "../src/ThemeProvider/themes";
 
 <Meta title="Quick Start" />
 
@@ -14,23 +15,156 @@ import ImgAtomicDesign from "./assets/images/atomic-design.png";
 yarn add git+https://github.com/BlaxBerry/myapp_uilib_react
 ```
 
+基于 React 与 Material UI, 使用前需要确保安装有以下依赖包
+
+```json
+"peerDependencies": {
+  "@emotion/react": "^11.11.3",
+  "@emotion/styled": "^11.11.0",
+  "@mui/icons-material": "^5.15.8",
+  "@mui/material": "^5.15.7",
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0"
+}
+```
+
 ## 设计
 
-### Atomic Design
+### 原子设计 ( Atomic Design )
 
 <img src={ImgAtomicDesign} alt="Atomic Design" />
 
-### 主题风格
+### 主题色调
+
+利用`<ThemeProvider>`组件包裹本UI包中的所有组件来实现主题的自定义
+
+另外可通过`props.themePaletteName`指定主题的色调
+
+[更多详见](?path=/docs/layouts-themeprovider--doc)
 
 ```tsx
 import React from "react";
-import { ThemeProvider } from "myapp_uilib_react";
+import {
+  ThemeProvider,
+  samplePaletteNames,
+  getSamplePaletteColor,
+  type SamplePaletteName,
+} from "myapp_uilib_react";
+
+// samplePaletteNames[3]; // "TEAL"
+// getSamplePaletteColor("TEAL", "primary", "main"); // '#26a69a'
+// getSamplePaletteColor("CRIMSON", "secondary", "dark"); // '#e91e63'
+
+const paletteName: SamplePaletteName = "TEAL"; // 鸭羽青色
 
 function App() {
   return (
-    <ThemeProvider>
-      <!-- 其他组件 --->
+    <ThemeProvider isDark={false} themePaletteName={paletteName}>
+      // 其他组件
     </ThemeProvider>
   );
 }
 ```
+
+    {(function () {
+        function formatPaletteName(key) {
+          switch (key) {
+            case "TEAL":
+              return "TEAL ( 鸭羽青色 )";
+            case "INDIGO":
+              return "INDIGO ( 靛青色 )";
+            case "VIOLET":
+              return "VIOLET ( 紫罗兰色 )";
+            case "CRIMSON":
+              return "CRIMSON ( 绯红色 )";
+          }
+        }
+
+        const paletteColors = Object.entries(samplePalettes).map(
+          ([key, value]) => ({ key: formatPaletteName(key), value }),
+        );
+
+        return (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around",
+              flexWrap: "wrap",
+            }}
+          >
+            {paletteColors.map((item) => {
+              const primary = Object.entries(item.value.primary).map(
+                ([name, color]) => ({ name, color }),
+              );
+              const secondary = Object.entries(item.value.secondary).map(
+                ([name, color]) => ({ name, color }),
+              );
+
+              return (
+                <div key={item.key}>
+                  <h4>{item.key}</h4>
+                  <hr />
+                  <div style={{ display: "flex", marginBottom: 30 }}>
+                    <div>
+                      <strong>Primary</strong>
+                      {primary.map((item) => (
+                        <section
+                          key={item.name}
+                          className="my-palette-color-block-wrapper"
+                        >
+                          <span
+                            className="my-palette-color-block"
+                            style={{ background: item.color }}
+                          />
+                          <small className="my-palette-color-name">
+                            {item.name}
+                          </small>
+                        </section>
+                      ))}
+                    </div>
+
+                    <div>
+                      <strong>Secondary</strong>
+                      {secondary.map((item) => (
+                        <section
+                          key={item.name}
+                          className="my-palette-color-block-wrapper"
+                        >
+                          <span
+                            className="my-palette-color-block"
+                            style={{ background: item.color }}
+                          />
+                          <small className="my-palette-color-name">
+                            {item.name}
+                          </small>
+                        </section>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        );
+      })()}
+
+<style>
+  {`
+    /* personal palette sample block */ 
+    .my-palette-color-block-wrapper {
+      display: flex;
+      align-items: center;
+      margin: 5px;
+    }
+    .my-palette-color-name {
+      display: inline-block; 
+    }
+    .my-palette-color-block {
+      display: inline-block;
+      border: 1px solid grey;
+      height: 20px;
+      width: 50px; 
+      margin: 5px;
+    }
+  `}
+</style>

@@ -7,39 +7,46 @@ import * as Stories from "./index.stories";
 
 <Subtitle>应用的主题 Provider</Subtitle>
 
+使用时需作为父组件包裹本UI包中的所有组件来实现主题的自定义
+
 ```tsx
 import { ThemeProvider, type ThemeProviderProps } from "myapp_uilib_react";
+```
+
+```tsx
+import {
+  samplePaletteNames,
+  samplePalettes,
+  type SamplePaletteName,
+} from "myapp_uilib_react";
 ```
 
 <Controls />
 
 ## 基本使用
 
-<div className="my-code-block">
-  <Story of={Stories.BaseExample} />
-</div>
+<Story of={Stories.BaseExample} />
 
 ```tsx
 import React from "react";
-import { ThemeProvider } from "myapp_uilib_react";
+import {
+  ThemeProvider,
+  samplePaletteNames,
+  getSamplePaletteColor,
+  type SamplePaletteName,
+} from "myapp_uilib_react";
+
+// samplePaletteNames[3]; // "TEAL"
+// getSamplePaletteColor("TEAL", "primary", "main"); // '#26a69a'
+// getSamplePaletteColor("CRIMSON", "secondary", "dark"); // '#e91e63'
+
+const paletteName: SamplePaletteName = "TEAL"; // 鸭羽青色
 
 function App() {
   return (
-    <ThemeProvider>
-      <!-- 其他组件 -->
+    <ThemeProvider isDark={false} themePaletteName={paletteName}>
+      // 其他组件
     </ThemeProvider>
   );
 }
 ```
-
-<style>
-  {`
-    /* personal code bloack */
-    .my-code-block {
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  `}
-</style>

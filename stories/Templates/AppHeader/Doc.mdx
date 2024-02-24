@@ -8,7 +8,13 @@ import * as Stories from "./index.stories";
 <Subtitle>应用的顶部 Header</Subtitle>
 
 ```tsx
-import { AppHeader, type AppHeaderProps } from "myapp_uilib_react";
+import {
+  AppHeader,
+  type AppHeaderProps,
+  type AppHeaderNavItem,
+  type AppHeaderSocialLinkItem,
+  type AppHeaderSettingsOptions,
+} from "myapp_uilib_react";
 ```
 
 <Controls />
@@ -19,7 +25,14 @@ import { AppHeader, type AppHeaderProps } from "myapp_uilib_react";
 
 ```tsx
 import React from "react";
-import { AppHeader, type AppHeaderProps } from "myapp_uilib_react";
+import StarIcon from "@mui/icons-material/Star";
+import {
+  AppHeader,
+  type AppHeaderProps,
+  type AppHeaderNavItem,
+  type AppHeaderSocialLinkItem,
+  type AppHeaderSettingsOptions,
+} from "myapp_uilib_react";
 
 function App() {
   return (
@@ -27,42 +40,143 @@ function App() {
       <AppHeader
         headerHeight={50}
         headerContainerMaxWidth="lg"
-        logo={<HeaderLogo />}
-        title="Xxx"
-        navItems={headerNavItems}
+        logoURL={logoURL}
+        title={appName}
+        onClickTitle={() => alert("clicked title & logo")}
+        navItems={navItems}
+        copyright={copyright}
+        socialLinks={socialLinks}
+        settingsOptions={settingsOptions}
       />
 
-      <p>page content</p>
-      <p>page content</p>
+      <main>
+        {[...new Array(5)]
+          .map(() => "page content")
+          .map((str, index) => (
+            <p key={index} style={{ margin: 0 }}>
+              {`${index} ${str}`}
+            </p>
+          ))}
+      </main>
     </>
   );
 }
 
-const HeaderLogo: React.FC = () => (
-  <img
-    src="https://iconape.com/wp-content/files/qa/371510/svg/371510.svg"
-    alt="logo"
-    style={{ display: "inline-block", height: "35px" }}
-  />
-);
+const appName = "Xxx";
+const logoURL = "https://iconape.com/wp-content/files/qa/371510/svg/371510.svg";
+const copyright = `Copyright © ${new Date().getFullYear()} MyApp UI Lib ( React )`;
 
-const headerNavItems: AppHeaderProps["navItems"] = [
+const navItems: Array<AppHeaderNavItem> = [
+  { text: "A", onClick: () => alert("clicked A") },
   {
-    item: "A",
-    link: "xx",
-    onClick: () => console.log("clicked A"),
+    text: "B",
+    icon: <StarIcon />,
+    selected: true,
+    onClick: () => alert("clicked A"),
+    onBlur: () => alert("focused on B"),
   },
   {
-    item: "B",
-    link: "xx",
-    onBlur: () => console.log("focused on B"),
+    text: "C",
+    disabled: true,
+    extraText: "🛠️开发中...",
+    onClick: () => alert("clicked C"),
   },
 ];
+
+const socialLinks: Array<AppHeaderSocialLinkItem> = [
+  {
+    icon: "github",
+    link: "https://github.com/BlaxBerry/myapp_uilib_react",
+  },
+  {
+    icon: "facebook",
+    link: "https://www.facebook.com/",
+  },
+  { icon: "x", link: "https://twitter.com/" },
+  { icon: <StarIcon />, link: "" },
+];
+
+const settingsOptions: AppHeaderSettingsOptions = {
+  DarkModeSwitcher: {
+    text: "切换黑暗模式",
+    isDarkMode: false,
+    onChange: (value) => {
+      console.log(value);
+    },
+  },
+  PaletteColorSwitcher: {
+    text: "切换主题色",
+    paletteColorName: "VIOLET",
+    onChange: (value) => {
+      console.log(value);
+    },
+  },
+  customOptions: (
+    <div style={{ padding: "16px" }}>
+      <section>Other Setting's Option</section>
+      <section>Other Setting's Option</section>
+    </div>
+  ),
+};
+```
+
+## 自定义
+
+利用`props.children`、`props.sx`自定义内容与样式
+
+<Story of={Stories.CustomizedExample} />
+
+```tsx
+import React from "react";
+import { AppHeader } from "myapp_uilib_react";
+
+const logoURL =
+  "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png";
+
+function CustomAppHeader() {
+  return (
+    <AppHeader
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        backgroundColor: "darkorange",
+        px: 2,
+      }}
+    >
+      <img
+        src={logoURL}
+        alt="logo"
+        loading="lazy"
+        style={{ display: "inline-block", height: "60%" }}
+      />
+
+      <small style={{ marginLeft: 10 }}>v 0.0.0</small>
+    </AppHeader>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <CustomAppHeader />
+
+      <main>
+        {[...new Array(5)]
+          .map(() => "page content")
+          .map((str, index) => (
+            <p key={index} style={{ margin: 0 }}>
+              {`${index} ${str}`}
+            </p>
+          ))}
+      </main>
+    </>
+  );
+}
 ```
 
 <style>
   {`
-    /* personal code bloack */
+    /* personal code block */
     .my-code-block {
       height: 100px;
       display: flex;

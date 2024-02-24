@@ -23,6 +23,8 @@ export type Props = Partial<{
   errorText: string;
   sx: SxProps;
 
+  size: BaseInputProps["size"];
+
   // 受控组件时
   value: BaseInputProps["value"];
   onChange: BaseInputProps["onChange"];
@@ -38,6 +40,7 @@ const FormItem: FC<Props> = ({
   disabled = false,
   error = false,
   required = false,
+  size = "medium",
   value,
   onChange,
 }) => {
@@ -71,7 +74,7 @@ const FormItem: FC<Props> = ({
         id={id}
         variant={variant}
         outlinedLabel={variant === "outlined" && labelFloat ? label : undefined}
-        {...{ value, onChange }}
+        {...{ size, value, onChange }}
       />
 
       {/* message */}

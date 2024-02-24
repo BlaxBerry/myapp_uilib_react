@@ -57,11 +57,6 @@ yarn check-prettier     # check prettier rules
 yarn format             # format code
 ```
 
-## Documents
-
-- [How to Write Stories](./docs/writeStories.md)
-- [Change Log](./docs/changeLog.md)
-
 ## Dev Flow
 
 ```shell
@@ -69,3 +64,8 @@ yarn build:lib
 git commit -m "MESSAGE"
 git push
 ```
+
+## Documents
+
+- [How to Write Stories](./docs/writeStories.md)
+- [Change Log](./docs/changeLog.md)
