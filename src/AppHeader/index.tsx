@@ -93,9 +93,11 @@ export type AppHeaderSettingsOptions = {
   CustomOptions?: ReactNode;
 };
 
+export const APP_HEADER_HEIGHT = 50;
+
 const AppHeader: FC<Props> = ({
   children,
-  headerHeight = 50,
+  headerHeight = APP_HEADER_HEIGHT,
   headerContainerMaxWidth,
   logoURL,
   title,

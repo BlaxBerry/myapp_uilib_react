@@ -64,5 +64,6 @@ export type AppHeaderSettingsOptions = {
     /** 自定义设置选项 */
     CustomOptions?: ReactNode;
 };
+export declare const APP_HEADER_HEIGHT = 50;
 declare const AppHeaderMemo: import("react").NamedExoticComponent<Props>;
 export default AppHeaderMemo;

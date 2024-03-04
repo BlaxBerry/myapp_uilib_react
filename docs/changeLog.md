@@ -12,4 +12,9 @@
 - ControlledDialog
 - UncontrolledDialog
 - AppHeader
+- AppSideMenu
+- AppSideMenuItem
+- AppLayoutWrappers
 - ThemeProvider
+- ThemeDarkModeSwitcher
+- ThemePaletteSwitcher

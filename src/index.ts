@@ -2,10 +2,21 @@ export * from "./Buttons";
 export * from "./Dialogs";
 export * from "./FormFields";
 
+export * from "./ThemeProvider";
+export * from "./ThemeSwitchers";
+
+export * from "./AppLayoutWrappers";
+
 export {
   default as Accordion,
   type Props as AccordionProps,
 } from "./Accordion";
+
+export {
+  samplePaletteNames,
+  samplePalettes,
+  type SamplePaletteName,
+} from "./ThemeProvider/themes";
 
 export {
   default as AppHeader,
@@ -14,11 +25,12 @@ export {
   type AppHeaderSocialLinkItem,
 } from "./AppHeader";
 
-export * from "./ThemeProvider";
-export * from "./ThemeSwitchers";
+export {
+  default as AppSideMenu,
+  type Props as AppSideMenuProps,
+} from "./AppSideMenu";
 
 export {
-  samplePaletteNames,
-  samplePalettes,
-  type SamplePaletteName,
-} from "./ThemeProvider/themes";
+  default as AppSideMenuItem,
+  type Props as AppSideMenuItemProps,
+} from "./AppSideMenuItem";
