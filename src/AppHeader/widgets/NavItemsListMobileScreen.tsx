@@ -59,7 +59,11 @@ const NavItemsListMobileScreen: FC<
                 cursor: item.disabled ? "not-allowed" : "default",
               }}
             >
-              <ListItemButton selected={item.selected} disabled={item.disabled}>
+              <ListItemButton
+                selected={item.selected}
+                disabled={item.disabled}
+                onClick={item.onClick}
+              >
                 {item.icon && <ListItemIcon>{item.icon}</ListItemIcon>}
                 <ListItemText
                   inset={!item.icon}

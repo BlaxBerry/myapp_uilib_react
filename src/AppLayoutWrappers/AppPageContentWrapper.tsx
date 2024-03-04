@@ -3,15 +3,24 @@ import type { SxProps } from "@mui/material/styles";
 import { memo, type FC, type PropsWithChildren } from "react";
 
 type Props = PropsWithChildren<{
+  center?: boolean;
   sx?: SxProps;
 }>;
 
-const AppPageContentWrapper: FC<Props> = ({ children, sx }) => {
+const AppPageContentWrapper: FC<Props> = ({ children, center, sx }) => {
   return (
     <Box
       sx={{
         width: "100%",
         p: 3,
+        ...(center
+          ? {
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }
+          : {}),
         ...sx,
       }}
     >

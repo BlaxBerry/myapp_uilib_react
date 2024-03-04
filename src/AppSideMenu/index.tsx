@@ -35,10 +35,11 @@ const AppSideMenu: FC<Props> = ({
         width,
         maxWidth: width,
         margin: "auto 0",
+        overflow: "hidden",
         ...sx,
       }}
     >
-      <Paper elevation={2} sx={{ height: "100%", p: 1 }}>
+      <Paper elevation={2} sx={{ height: "100%", width: "100%", p: 1 }}>
         {children}
       </Paper>
     </Box>

@@ -1,4 +1,4 @@
-import { type FocusEventHandler, type MouseEventHandler, type PropsWithChildren, type ReactNode } from "react";
+import { type PropsWithChildren, type ReactNode } from "react";
 import { type AppBarProps } from "@mui/material/AppBar";
 import { type ContainerProps } from "@mui/material/Container";
 import { type SxProps } from "@mui/material/styles";
@@ -48,9 +48,9 @@ export type AppHeaderNavItem = {
     /** MUI SX 样式 */
     sx?: SxProps;
     /** 自定义点击事件 */
-    onClick?: MouseEventHandler<HTMLLIElement>;
+    onClick?: () => void;
     /** 自定义点聚焦事件 */
-    onBlur?: FocusEventHandler<HTMLLIElement>;
+    onBlur?: () => void;
 };
 export type AppHeaderSocialLinkItem = {
     /** 外部链接图标 */

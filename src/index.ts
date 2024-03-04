@@ -1,6 +1,7 @@
 export * from "./Buttons";
 export * from "./Dialogs";
 export * from "./FormFields";
+export * from "./Typographies";
 
 export * from "./ThemeProvider";
 export * from "./ThemeSwitchers";

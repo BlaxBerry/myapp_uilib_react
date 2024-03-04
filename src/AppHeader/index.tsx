@@ -3,7 +3,6 @@ import {
   useCallback,
   useState,
   type FC,
-  type FocusEventHandler,
   type MouseEventHandler,
   type PropsWithChildren,
   type ReactNode,
@@ -75,9 +74,9 @@ export type AppHeaderNavItem = {
   /** MUI SX 样式 */
   sx?: SxProps;
   /** 自定义点击事件 */
-  onClick?: MouseEventHandler<HTMLLIElement>;
+  onClick?: () => void;
   /** 自定义点聚焦事件 */
-  onBlur?: FocusEventHandler<HTMLLIElement>;
+  onBlur?: () => void;
 };
 
 export type AppHeaderSocialLinkItem = {
