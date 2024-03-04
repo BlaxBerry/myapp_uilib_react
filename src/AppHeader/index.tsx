@@ -28,6 +28,8 @@ import {
   type AppHeaderSocialLinkIcon,
 } from "./widgets";
 
+export type AppHeaderContainerWidth = ContainerProps["maxWidth"];
+
 export type Props = PropsWithChildren<{
   /**
    * 固定高度
@@ -35,7 +37,7 @@ export type Props = PropsWithChildren<{
    */
   headerHeight?: number;
   /** 容器最大宽度 ( MUI Breakpoint ) */
-  headerContainerMaxWidth?: ContainerProps["maxWidth"];
+  headerContainerMaxWidth?: AppHeaderContainerWidth;
   /** Logo 图片的URL */
   logoURL?: string;
   /** 标题文字/组件 */
@@ -45,6 +47,7 @@ export type Props = PropsWithChildren<{
   /** 路由组 */
   navItems?: Array<AppHeaderNavItem>;
   navItemsOptionTitle?: string;
+  showNavItemsInPCScreen?: boolean;
   /** 外部链接组 */
   socialLinks?: Array<AppHeaderSocialLinkItem>;
   /** 版权信息 */
@@ -104,6 +107,7 @@ const AppHeader: FC<Props> = ({
   onClickTitle,
   navItems,
   navItemsOptionTitle = "Nav Items",
+  showNavItemsInPCScreen = true,
   socialLinks,
   copyright,
   settingsOptions,
@@ -158,18 +162,20 @@ const AppHeader: FC<Props> = ({
               <div style={{ flexGrow: 1 }}></div>
 
               {/* nav items list in PC screen */}
-              <Box
-                component="nav"
-                sx={{
-                  display: {
-                    xs: "none",
-                    sm: "block",
-                  },
-                  height: "100%",
-                }}
-              >
-                <NavItemsListPCScreen navItems={navItems} />
-              </Box>
+              {showNavItemsInPCScreen && (
+                <Box
+                  component="nav"
+                  sx={{
+                    display: {
+                      xs: "none",
+                      sm: "block",
+                    },
+                    height: "100%",
+                  }}
+                >
+                  <NavItemsListPCScreen navItems={navItems} />
+                </Box>
+              )}
 
               {/* nav items menu button in mobile screen */}
               <IconButton

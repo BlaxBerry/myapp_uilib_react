@@ -20,6 +20,7 @@ export {
 
 export {
   default as AppHeader,
+  type AppHeaderContainerWidth,
   type AppHeaderNavItem,
   type Props as AppHeaderProps,
   type AppHeaderSocialLinkItem,

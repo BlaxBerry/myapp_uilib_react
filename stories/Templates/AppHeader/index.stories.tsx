@@ -63,6 +63,14 @@ const meta = {
       },
       control: { type: "object" },
     },
+    showNavItemsInPCScreen: {
+      description: "是否在PC页面下展示路由组",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: "true" },
+      },
+      control: { type: "boolean" },
+    },
     copyright: {
       description: "版权信息，仅在小屏幕下展示在路由组列表底部",
       table: {
@@ -132,6 +140,7 @@ const meta = {
         onClick: () => alert("clicked C"),
       },
     ],
+    showNavItemsInPCScreen: true,
     copyright: `Copyright © ${new Date().getFullYear()} MyApp UI Lib ( React )`,
     socialLinks: [
       {

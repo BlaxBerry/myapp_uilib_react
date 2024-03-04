@@ -2,13 +2,15 @@ import { APP_HEADER_HEIGHT } from "@/AppHeader";
 import { memo, type FC, type PropsWithChildren } from "react";
 
 import Box from "@mui/material/Box";
-import Container, { type ContainerProps } from "@mui/material/Container";
-import type { SxProps } from "@mui/material/styles";
+import Container from "@mui/material/Container";
+import type { Breakpoint, SxProps } from "@mui/material/styles";
+
+export type AppContentContainerWidth = Breakpoint;
 
 type Props = PropsWithChildren<{
   /** 容器最大宽度 ( MUI Breakpoint ) */
-  containerMaxWidth?: ContainerProps["maxWidth"];
-  height?: number;
+  containerMaxWidth?: AppContentContainerWidth;
+  height?: number | string;
   sx?: SxProps;
 }>;
 

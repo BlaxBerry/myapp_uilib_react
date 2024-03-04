@@ -1,10 +1,10 @@
 import { type PropsWithChildren } from "react";
-import { type ContainerProps } from "@mui/material/Container";
-import type { SxProps } from "@mui/material/styles";
+import type { Breakpoint, SxProps } from "@mui/material/styles";
+export type AppContentContainerWidth = Breakpoint;
 type Props = PropsWithChildren<{
     /** 容器最大宽度 ( MUI Breakpoint ) */
-    containerMaxWidth?: ContainerProps["maxWidth"];
-    height?: number;
+    containerMaxWidth?: AppContentContainerWidth;
+    height?: number | string;
     sx?: SxProps;
 }>;
 declare const AppContentWrapperMemo: import("react").NamedExoticComponent<Props>;

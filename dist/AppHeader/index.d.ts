@@ -3,6 +3,7 @@ import { type AppBarProps } from "@mui/material/AppBar";
 import { type ContainerProps } from "@mui/material/Container";
 import { type SxProps } from "@mui/material/styles";
 import { type AppHeaderSocialLinkIcon } from "./widgets";
+export type AppHeaderContainerWidth = ContainerProps["maxWidth"];
 export type Props = PropsWithChildren<{
     /**
      * 固定高度
@@ -10,7 +11,7 @@ export type Props = PropsWithChildren<{
      */
     headerHeight?: number;
     /** 容器最大宽度 ( MUI Breakpoint ) */
-    headerContainerMaxWidth?: ContainerProps["maxWidth"];
+    headerContainerMaxWidth?: AppHeaderContainerWidth;
     /** Logo 图片的URL */
     logoURL?: string;
     /** 标题文字/组件 */
@@ -20,6 +21,7 @@ export type Props = PropsWithChildren<{
     /** 路由组 */
     navItems?: Array<AppHeaderNavItem>;
     navItemsOptionTitle?: string;
+    showNavItemsInPCScreen?: boolean;
     /** 外部链接组 */
     socialLinks?: Array<AppHeaderSocialLinkItem>;
     /** 版权信息 */
