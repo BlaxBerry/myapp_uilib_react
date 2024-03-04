@@ -8,11 +8,12 @@ export type Props = {
   isActive: boolean;
   icon?: ReactNode;
   label: string;
+  onClick: () => void;
 };
 
-const AppSideMenuItem: FC<Props> = ({ isActive, icon, label }) => {
+const AppSideMenuItem: FC<Props> = ({ isActive, icon, label, onClick }) => {
   return (
-    <ListItemButton selected={isActive}>
+    <ListItemButton selected={isActive} onClick={onClick}>
       {icon && (
         <ListItemIcon
           sx={(theme) => ({
@@ -30,6 +31,7 @@ const AppSideMenuItem: FC<Props> = ({ isActive, icon, label }) => {
           fontWeight: isActive ? 700 : undefined,
           color: isActive ? theme.palette.primary.main : "inherit",
         })}
+        noWrap
       >
         {label}
       </Typography>

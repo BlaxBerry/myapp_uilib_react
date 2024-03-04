@@ -10,14 +10,18 @@ export const APP_SIDE_MENU_WIDTH = 200;
 export type Props = PropsWithChildren<{
   /**
    * 固定高度
-   * @default 50
+   * @default `calc(100vh - 50px - 10%)`
    */
-  height: number;
-  width?: number;
+  height?: number | string;
+  /**
+   * 固定宽度
+   * @default 200
+   */
+  width?: number | string;
   sx?: SxProps;
 }>;
 
-const AppSideMenuBar: FC<Props> = ({
+const AppSideMenu: FC<Props> = ({
   height = `calc(100vh - ${APP_HEADER_HEIGHT}px - 10%)`,
   width = APP_SIDE_MENU_WIDTH,
   children,
@@ -41,5 +45,5 @@ const AppSideMenuBar: FC<Props> = ({
   );
 };
 
-const AppSideMenuBarMemo = memo(AppSideMenuBar);
-export default AppSideMenuBarMemo;
+const AppSideMenuMemo = memo(AppSideMenu);
+export default AppSideMenuMemo;
