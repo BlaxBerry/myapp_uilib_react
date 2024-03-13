@@ -1,0 +1,36 @@
+import { Meta, Title, Subtitle, Controls, Story } from "@storybook/blocks";
+import * as ParagraphStories from "./index.stories";
+
+<Meta of={ParagraphStories} />
+
+<Title>\<Paragraph></Title>
+
+<Subtitle>段落</Subtitle>
+
+```tsx
+import { Paragraph, type ParagraphProps } from "myapp_uilib_react";
+```
+
+<Controls />
+
+## 基本使用
+
+渲染为 p 标签
+
+可通过`noWrap`属性超长内容实现不换行省略显示
+
+{/* prettier-ignore-start */}
+```tsx
+import React from "react";
+import { Paragraph } from "myapp_uilib_react";
+
+function App(args) {
+  return (
+    <>
+      <Paragraph>xxx</Paragraph>
+      <Paragraph noWrap>xxx</Paragraph>
+    </>
+  );
+}
+```
+{/* prettier-ignore-end */}

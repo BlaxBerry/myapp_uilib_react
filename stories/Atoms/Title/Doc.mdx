@@ -1,0 +1,34 @@
+import { Meta, Title, Subtitle, Controls, Story } from "@storybook/blocks";
+import * as TitleStories from "./index.stories";
+
+<Meta of={TitleStories} />
+
+<Title>\<Title></Title>
+
+<Subtitle>标题</Subtitle>
+
+```tsx
+import { Title, type TitleProps } from "myapp_uilib_react";
+```
+
+<Controls />
+
+## 基本使用
+
+默认渲染为字体粗度 700 的 h4 标签，可通过`props`属性自行修改
+
+{/* prettier-ignore-start */}
+```tsx
+import React from "react";
+import { Title } from "myapp_uilib_react";
+
+function App(args) {
+  return (
+    <>
+      <Title>xxx</Title>
+      <Title>xxx</Title>
+    </>
+  );
+}
+```
+{/* prettier-ignore-end */}

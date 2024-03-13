@@ -1,0 +1,78 @@
+import { Meta, Title, Subtitle, Controls, Story } from "@storybook/blocks";
+import * as UncontrolledDrawerStories from "./index.stories";
+
+<Meta of={UncontrolledDrawerStories} />
+
+<Title>\<UncontrolledDrawer></Title>
+
+<Subtitle>非控组件形式的 Drawer 抽屉</Subtitle>
+
+```tsx
+import {
+  UncontrolledDrawer,
+  type UncontrolledDrawerProps,
+  type UncontrolledDrawerRef,
+} from "myapp_uilib_react";
+```
+
+<Controls />
+
+## 基本使用
+
+需在使用 Drawer 的组件内使用 ref 控制开关状态
+
+默认点击`esc`键以及点击背景会关闭 Drawer
+
+{/* prettier-ignore-start */}
+```tsx
+import React from "react";
+import { UncontrolledDialog, type UncontrolledDrawerRef } from "myapp_uilib_react";
+
+function App(args) {
+  const ref = React.useRef<UncontrolledDrawerRef>(null);
+  const handleOpen = () => ref.current?.handleOpen();
+  const handleClose = () => ref.current?.handleClose();
+
+  return (
+    <>
+      <button onClick={handleOpen}>show dialog</button>
+
+      <UncontrolledDrawerComponent ref={ref}>
+        <div>
+          Uncontrolled Drawer
+          <button onClick={handleClose}>Close</button>
+        </div>
+      </UncontrolledDrawerComponent>
+    </>
+  );
+}
+```
+{/* prettier-ignore-end */}
+
+## 禁止逃逸关闭
+
+禁止点击`esc`按键以及点击背景会关闭 Dialog
+
+将`escapeBackdropClick`设为`true`
+
+{/* prettier-ignore-start */}
+```tsx
+import React from "react";
+import { UncontrolledDialog, type UncontrolledDrawerRef } from "myapp_uilib_react";
+
+function App(args) {
+  const ref = React.useRef<UncontrolledDrawerRef>(null);
+  const handleOpen = () => ref.current?.handleOpen();
+
+  return (
+    <>
+      <button onClick={handleOpen}>show dialog</button>
+
+      <UncontrolledDrawerComponent ref={ref} escapeBackdropClick>
+        Uncontrolled Drawer
+      </UncontrolledDrawerComponent>
+    </>
+  );
+}
+```
+{/* prettier-ignore-end */}

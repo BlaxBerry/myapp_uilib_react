@@ -1,10 +1,10 @@
 import Typography, { type TypographyProps } from "@mui/material/Typography";
-import { memo, type FC } from "react";
+import { memo, type FC, type PropsWithChildren } from "react";
 
-export type Props = TypographyProps;
+export type Props = PropsWithChildren<TypographyProps>;
 
-const Paragraph: FC<TypographyProps> = (props) => {
-  return <Typography component="p" noWrap {...props} />;
+const Paragraph: FC<Props> = (props) => {
+  return <Typography component="p" {...props} />;
 };
 
 const ParagraphMemo = memo(Paragraph);

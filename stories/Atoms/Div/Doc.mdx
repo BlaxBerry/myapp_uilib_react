@@ -1,0 +1,34 @@
+import { Meta, Title, Subtitle, Controls, Story } from "@storybook/blocks";
+import * as DivStories from "./index.stories";
+
+<Meta of={DivStories} />
+
+<Title>\<Div></Title>
+
+<Subtitle>普通块级元素</Subtitle>
+
+```tsx
+import { Div, type DivProps } from "myapp_uilib_react";
+```
+
+<Controls />
+
+## 基本使用
+
+渲染为 div 标签
+
+{/* prettier-ignore-start */}
+```tsx
+import React from "react";
+import { Div } from "myapp_uilib_react";
+
+function App(args) {
+  return (
+    <>
+      <Div>xxx</Div>
+      <Div>xxx</Div>
+    </>
+  );
+}
+```
+{/* prettier-ignore-end */}

@@ -12,7 +12,10 @@ const AppPageContentWrapper: FC<Props> = ({ children, center, sx }) => {
     <Box
       sx={{
         width: "100%",
-        p: 3,
+        p: {
+          xs: 0,
+          sm: 2,
+        },
         ...(center
           ? {
               display: "flex",

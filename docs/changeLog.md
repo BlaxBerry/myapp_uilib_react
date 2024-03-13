@@ -6,6 +6,9 @@
 
 - BaseButton
 - BaseInput
+- Paragraph
+- Title
+- Div
 - FormItem
 - Accordion
 - FileUploadHiddenInput
