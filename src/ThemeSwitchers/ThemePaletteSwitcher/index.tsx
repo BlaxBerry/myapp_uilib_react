@@ -49,7 +49,7 @@ function ThemePaletteSwitcher({
 
   return (
     <ListItem>
-      <ListItemIcon>
+      <ListItemIcon sx={{ minWidth: 40 }}>
         <PaletteIcon />
       </ListItemIcon>
 

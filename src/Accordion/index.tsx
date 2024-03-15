@@ -31,7 +31,11 @@ function Accordion({
   reverseExpandIcon = false,
 }: Props) {
   return (
-    <MuiAccordion defaultExpanded={defaultExpanded} disabled={disabled}>
+    <MuiAccordion
+      defaultExpanded={defaultExpanded}
+      disabled={disabled}
+      slotProps={{ transition: { unmountOnExit: true } }}
+    >
       {/* title */}
       <AccordionSummary
         expandIcon={expandIcon}
@@ -46,7 +50,7 @@ function Accordion({
               ? {
                   flexDirection: "row-reverse",
                   "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-                    transform: "rotate(90deg)",
+                    transform: "rotate(180deg)",
                   },
                   "& .MuiAccordionSummary-content": {
                     marginLeft: theme.spacing(1),
@@ -70,7 +74,7 @@ function Accordion({
       </AccordionDetails>
 
       {/* actions */}
-      <AccordionActions>{actions}</AccordionActions>
+      {actions && <AccordionActions>{actions}</AccordionActions>}
     </MuiAccordion>
   );
 }

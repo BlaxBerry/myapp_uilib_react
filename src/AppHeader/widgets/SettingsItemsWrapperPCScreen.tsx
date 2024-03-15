@@ -48,6 +48,8 @@ const SettingsItemsWrapperPCScreen: FC<
               transform: "translateY(-50%) rotate(45deg)",
               zIndex: 0,
             },
+
+            width: 320,
           },
         },
       }}

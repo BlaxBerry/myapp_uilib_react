@@ -41,7 +41,7 @@ function ThemeDarkModeSwitcher({
 
   return (
     <ListItem>
-      <ListItemIcon>
+      <ListItemIcon sx={{ minWidth: 40 }}>
         {value ? <DarkModeIcon /> : <LightModeIcon />}
       </ListItemIcon>
 

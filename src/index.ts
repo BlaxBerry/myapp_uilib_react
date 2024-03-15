@@ -40,3 +40,4 @@ export {
 export * from "./Dialogs";
 
 export { default as Div, type Props as DivProps } from "./Div";
+export * from "./Drawers";

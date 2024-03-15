@@ -40,14 +40,15 @@ const NavItemsListMobileScreen: FC<
       elevation={4}
       sx={{
         display: {
-          xs: "block",
+          xs: "flex",
           sm: "none",
         },
         overflowY: "scroll",
         height: "100vh",
+        flexDirection: "column",
       }}
     >
-      <List>
+      <List sx={{ flex: 1 }}>
         {/* nav items list */}
         <Accordion title={navItemsOptionTitle}>
           {navItems?.map((item, index) => (
@@ -98,21 +99,23 @@ const NavItemsListMobileScreen: FC<
           >
             <SocialLinkItems socialLinks={socialLinks} />
           </Box>
-          <Divider />
         </>
       )}
 
       {/* copyright */}
       {copyright && (
-        <Typography
-          variant="caption"
-          display="flex"
-          justifyContent="center"
-          color="GrayText"
-          sx={{ py: 2 }}
-        >
-          {copyright}
-        </Typography>
+        <>
+          <Divider />
+          <Typography
+            variant="caption"
+            display="flex"
+            justifyContent="center"
+            color="GrayText"
+            sx={{ py: 2 }}
+          >
+            {copyright}
+          </Typography>
+        </>
       )}
     </Paper>
   );

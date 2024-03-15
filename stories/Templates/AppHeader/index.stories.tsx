@@ -32,6 +32,14 @@ const meta = {
         defaultValue: { summary: "xl" },
       },
     },
+    headerMinWidth: {
+      description: "AppHeader 的`minWidth`",
+      table: {
+        type: { summary: "number" },
+        defaultValue: { summary: "370" },
+      },
+      control: { type: "number" },
+    },
     logoURL: {
       description: "Logo 图片的URL",
       table: {
@@ -115,6 +123,7 @@ const meta = {
   args: {
     headerHeight: 50,
     headerContainerMaxWidth: "lg",
+    headerMinWidth: 370,
     logoURL: "https://iconape.com/wp-content/files/qa/371510/svg/371510.svg",
     title: "Xxx",
     onClickTitle: () => {},

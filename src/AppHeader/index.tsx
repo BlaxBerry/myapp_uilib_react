@@ -37,6 +37,11 @@ export type Props = PropsWithChildren<{
   headerHeight?: number;
   /** 容器最大宽度 ( MUI Breakpoint ) */
   headerContainerMaxWidth?: AppHeaderContainerWidth;
+  /**
+   * 最小宽度
+   * @default 370
+   */
+  headerMinWidth?: number;
   /** Logo 图片的URL */
   logoURL?: string;
   /** 标题文字/组件 */
@@ -96,11 +101,13 @@ export type AppHeaderSettingsOptions = {
 };
 
 export const APP_HEADER_HEIGHT = 50;
+export const APP_HEADER_MIN_WIDTH = 370;
 
 const AppHeader: FC<Props> = ({
   children,
   headerHeight = APP_HEADER_HEIGHT,
   headerContainerMaxWidth,
+  headerMinWidth = APP_HEADER_MIN_WIDTH,
   logoURL,
   title,
   onClickTitle,
@@ -140,6 +147,7 @@ const AppHeader: FC<Props> = ({
         {...AppBarProps}
         sx={{
           height: headerHeight,
+          minWidth: headerMinWidth,
           flexDirection: "row",
           ...sx,
         }}
