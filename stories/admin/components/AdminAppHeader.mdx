@@ -1,0 +1,62 @@
+import { Meta, Title, Subtitle, Controls, Story } from "@storybook/blocks";
+import * as Stories from "./AdminAppHeader.stories.tsx";
+
+<Meta of={Stories} />
+
+<Title>\<AdminAppHeader></Title>
+
+```tsx
+import { AdminAppHeader } from "myapp_uilib_react";
+```
+
+```tsx
+import * as React from "react";
+import { AdminAppSideNav } from "myapp_uilib_react";
+
+function Component() {
+  const [isExpanded, setIsExpanded] = React.useState<boolean>(false);
+  const toggleExpand = React.useCallback(() => {
+    setIsExpanded((s) => !s);
+  }, []);
+
+  return (
+    <AdminAppHeader
+      headSideNav={{ isExpanded, toggleExpand }}
+      headerBreadcrumbs={{
+        list: [
+          { id: "home", text: "首页", icon: <HomeOutlinedIcon /> },
+          { id: "home", text: "流程图", icon: <AccountTreeOutlinedIcon /> },
+          { id: "home", text: "列表" },
+        ],
+      }}
+      headAccount={{
+        avatarProps: {
+          alt: "Account",
+          src: "https://avatars.githubusercontent.com/u/73395592?v=4",
+        },
+        listProps: {
+          listSubheader: {
+            children: "blaxberry123@comxxxxxx",
+          },
+          data: [
+            {
+              id: "edit-account",
+              text: "编辑资料",
+              icon: <EditNoteRoundedIcon />,
+              onClick: () => {},
+            },
+          ],
+          extraData: [
+            {
+              id: "exit-account",
+              text: "退出登陆",
+              icon: <ExitToAppRoundedIcon />,
+              onClick: () => {},
+            },
+          ],
+        },
+      }}
+    />
+  );
+}
+```

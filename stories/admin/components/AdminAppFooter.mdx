@@ -1,0 +1,24 @@
+import { Meta, Title, Subtitle, Controls, Story } from "@storybook/blocks";
+import * as Stories from "./AdminAppFooter.stories.tsx";
+
+<Meta of={Stories} />
+
+<Title>\<AdminAppFooter></Title>
+
+```tsx
+import { AdminAppFooter } from "myapp_uilib_react";
+```
+
+```tsx
+import * as React from "react";
+import { AdminAppSideNav } from "myapp_uilib_react";
+
+function Component() {
+  return (
+    <AdminAppFooter
+      copyright="©2024 BlaxBerry All Rights Reserved"
+      socialLinks={["github", "x"]}
+    />
+  );
+}
+```

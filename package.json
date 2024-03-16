@@ -13,8 +13,7 @@
     "url": "git+https://github.com/BlaxBerry/myapp_uilib_react"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "main": "./dist/index.umd.cjs",
   "types": "./dist/index.d.ts",

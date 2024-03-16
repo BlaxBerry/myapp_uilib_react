@@ -25,13 +25,13 @@ yarn add git+https://github.com/BlaxBerry/myapp_uilib_react
 ├── docs/                           project's documents
 ├── public/
 ├── src/                            components
-│   ├── [COMPONENT]/
+│   ├── [...]/
 │   ├── ...
 │   └── index.ts
 ├── stories/                        components' stories
-│   ├── [COMPONENT]/
-│   │   ├── Doc.mdx
-│   │   └── index.stories.tsx
+│   ├── [...]/
+│   │   ├── [...].mdx
+│   │   └── [...].stories.tsx
 │   └── ...
 ├── storybook-static                storybook static pages
 │   ├── ...
@@ -67,5 +67,4 @@ git push
 
 ## Documents
 
-- [How to Write Stories](./docs/writeStories.md)
 - [Change Log](./docs/changeLog.md)
