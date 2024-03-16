@@ -15,8 +15,8 @@ const meta = {
     headerBreadcrumbs: {
       list: [
         { id: "home", text: "首页", icon: <HomeOutlinedIcon /> },
-        { id: "home", text: "流程图", icon: <AccountTreeOutlinedIcon /> },
-        { id: "home", text: "列表" },
+        { id: "scenario", text: "流程图", icon: <AccountTreeOutlinedIcon /> },
+        { id: "list", text: "列表" },
       ],
     },
     headAccount: {
@@ -41,7 +41,9 @@ const meta = {
             id: "exit-account",
             text: "退出登陆",
             icon: <ExitToAppRoundedIcon />,
-            onClick: () => {},
+            onClick: () => {
+              console.log("exit");
+            },
           },
         ],
       },

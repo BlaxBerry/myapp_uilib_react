@@ -28,6 +28,7 @@ const BaseListItem: React.FC<BaseListItemProps> = ({
   return (
     <ListItem disablePadding {...listItemProps}>
       <ListItemButton
+        onClick={item.onClick}
         sx={(theme) => ({
           borderRadius: theme.shape.borderRadius,
           py: 1,

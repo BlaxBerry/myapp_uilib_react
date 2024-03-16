@@ -16,6 +16,9 @@ const meta = {
     logo: {
       url: "https://myapp-admin.vercel.app/favicon.svg",
       text: "My Admin",
+      onClick: () => {
+        console.log("logo");
+      },
     },
     navigation: {
       list: [
@@ -24,7 +27,9 @@ const meta = {
           text: "11",
           icon: <GridViewOutlinedIcon />,
           isActive: false,
-          onClick: () => {},
+          onClick: () => {
+            console.log(111);
+          },
         },
         {
           id: "2",

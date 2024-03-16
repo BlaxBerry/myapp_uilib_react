@@ -7,6 +7,7 @@ export type AdminAppSideNavProps = {
     logo?: {
         url?: string;
         text?: string;
+        onClick?: () => void;
     };
     navigation: {
         list: SimpleDataRenderListProps["data"];

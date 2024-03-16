@@ -16,7 +16,7 @@ export type BaseListItemData = {
   text: string;
   icon?: React.ReactNode;
   isActive?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export type BaseListProps = {

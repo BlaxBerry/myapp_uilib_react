@@ -57,6 +57,17 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({
     [themeMode],
   );
 
+  React.useEffect(() => {
+    const body = document.body;
+    if (themeMode === "dark") {
+      body.style.backgroundColor = "#121212";
+      body.style.color = "rgba(255, 255, 255, 0.7)";
+    } else {
+      body.style.backgroundColor = "#fff";
+      body.style.color = "rgba(0, 0, 0, 0.87)";
+    }
+  }, [themeMode]);
+
   return (
     <ThemePaletteContext.Provider
       value={{

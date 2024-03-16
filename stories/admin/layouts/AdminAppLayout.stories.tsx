@@ -6,6 +6,7 @@ import AdminAppFooterStoryMeta from "../components/AdminAppFooter.stories";
 import AdminAppHeaderStoryMeta from "../components/AdminAppHeader.stories";
 import AdminAppSideNavStoryMeta from "../components/AdminAppSideNav.stories";
 
+import { BasePaper } from "../../../src/@common";
 import "./AdminAppLayout.stories.css";
 
 const meta = {
@@ -35,6 +36,10 @@ export const ExampleBase: Stroy = {
         {[...new Array(20)].map((_, i) => (
           <p key={i}>{i} - xxx</p>
         ))}
+
+        <BasePaper>111</BasePaper>
+        <BasePaper contentProps={{ style: { width: 100 } }}>222</BasePaper>
+        <BasePaper wrapperProps={{ sx: { p: 0 } }}>333</BasePaper>
       </AdminLayout>
     );
   },

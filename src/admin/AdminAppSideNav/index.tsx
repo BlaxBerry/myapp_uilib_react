@@ -17,6 +17,7 @@ export type AdminAppSideNavProps = {
   logo?: {
     url?: string;
     text?: string;
+    onClick?: () => void;
   };
   navigation: {
     list: SimpleDataRenderListProps["data"];
@@ -52,10 +53,12 @@ const AdminAppSideNav: React.FC<AdminAppSideNavProps> = ({
     >
       {/* logo */}
       <Box
+        onClick={logo?.onClick}
         sx={{
           height: logoHeight,
           display: "flex",
           alignItems: "center",
+          cursor: "pointer",
           px: 2.2,
         }}
       >

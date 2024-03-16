@@ -1,7 +1,9 @@
+import Box, { type BoxProps } from "@mui/material/Box";
 import * as React from "react";
 
-import Box, { type BoxProps } from "@mui/material/Box";
 import { AdminAppStyle } from "../tools";
+
+const AdminAppHeaderHeight = AdminAppStyle.AdminAppHeader.height;
 
 export type AdminAppContentProps = React.PropsWithChildren<{
   contentProps?: BoxProps;
@@ -22,7 +24,7 @@ const AdminAppContent: React.FC<AdminAppContentProps> = ({
         sx={{
           pt: 2,
           overflowY: "scroll",
-          height: `calc(100vh - ${AdminAppStyle.AdminAppHeader.height}px - 48px)`,
+          height: `calc(100vh - ${AdminAppHeaderHeight}px - 32px)`,
         }}
       >
         {children}

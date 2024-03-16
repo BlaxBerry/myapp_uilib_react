@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
@@ -26,44 +25,43 @@ const AdminAppFooter: React.FC<AdminAppFooterProps> = ({
 
       <Paper
         component="footer"
-        sx={(theme) => ({ pt: 2, borderRadius: theme.shape.borderRadius })}
+        variant="outlined"
+        sx={(theme) => ({
+          pt: 2,
+          borderRadius: theme.shape.borderRadius,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          px: 2,
+          pb: 2,
+        })}
         {...footerProps}
       >
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            px: 2,
-            pb: 2,
-          }}
+        {/* copyright */}
+        <Typography
+          variant="caption"
+          noWrap
+          sx={{ flex: 1, color: "GrayText", textAlign: "center" }}
         >
-          {/* copyright */}
-          <Typography
-            variant="caption"
-            noWrap
-            sx={{ flex: 1, color: "GrayText", textAlign: "center" }}
-          >
-            {copyright}
-          </Typography>
+          {copyright}
+        </Typography>
 
-          {/* social links */}
-          {socialLinks && (
-            <Stack direction="row" spacing={1} sx={{ pl: 2 }}>
-              {socialLinks?.map((linkType) => (
-                <IconButton
-                  key={linkType}
-                  size="small"
-                  href="https://github.com/BlaxBerry/myapp_uilib_react"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {SOCIAL_LINKS[linkType]}
-                </IconButton>
-              ))}
-            </Stack>
-          )}
-        </Box>
+        {/* social links */}
+        {socialLinks && (
+          <Stack direction="row" spacing={1} sx={{ pl: 2 }}>
+            {socialLinks?.map((linkType) => (
+              <IconButton
+                key={linkType}
+                size="small"
+                href="https://github.com/BlaxBerry/myapp_uilib_react"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {SOCIAL_LINKS[linkType]}
+              </IconButton>
+            ))}
+          </Stack>
+        )}
       </Paper>
     </>
   );

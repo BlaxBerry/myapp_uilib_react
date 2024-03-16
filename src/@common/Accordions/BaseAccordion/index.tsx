@@ -3,7 +3,9 @@ import { memo, type PropsWithChildren, type ReactNode } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion from "@mui/material/Accordion";
 import AccordionActions from "@mui/material/AccordionActions";
-import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionDetails, {
+  type AccordionDetailsProps,
+} from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 
 export type BaseAccordionProps = PropsWithChildren<{
@@ -13,6 +15,8 @@ export type BaseAccordionProps = PropsWithChildren<{
   reverseExpandIcon?: boolean;
   expandIcon?: ReactNode;
   actions?: ReactNode;
+
+  accordionDetailsProps?: AccordionDetailsProps;
 }>;
 
 const BaseAccordion: React.FC<BaseAccordionProps> = ({
@@ -23,6 +27,8 @@ const BaseAccordion: React.FC<BaseAccordionProps> = ({
   disabled = false,
   expandIcon = <ExpandMoreIcon />,
   reverseExpandIcon = false,
+
+  accordionDetailsProps,
 }) => {
   return (
     <MuiAccordion
@@ -59,10 +65,12 @@ const BaseAccordion: React.FC<BaseAccordionProps> = ({
 
       {/* content */}
       <AccordionDetails
-        sx={(theme) => ({
-          padding: theme.spacing(2),
+        sx={{
           borderTop: "1px solid rgba(0, 0, 0, .125)",
-        })}
+          py: 1,
+          px: 2,
+        }}
+        {...accordionDetailsProps}
       >
         {children}
       </AccordionDetails>

@@ -33,7 +33,10 @@ const SimpleDataRenderList: React.FC<SimpleDataRenderListProps> = ({
     <List {...listProps}>
       {data?.map((item) => (
         <ListItem key={item.id} disablePadding>
-          <ListItemButton {...listItemButtonProps?.(item)}>
+          <ListItemButton
+            onClick={item.onClick}
+            {...listItemButtonProps?.(item)}
+          >
             {/* icon */}
             <ListItemIcon {...listItemIconProps?.(item)}>
               {item.icon}

@@ -9,6 +9,7 @@
   - BaseAccordion
   - BaseList
   - BaseParagraph
+  - BasePaper
 - admin
   - AdminAppLayout
   - AdminAppHeader
