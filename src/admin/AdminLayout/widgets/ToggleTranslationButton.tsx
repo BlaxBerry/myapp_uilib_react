@@ -47,7 +47,7 @@ const ToggleTranslationButton = ({
       </BaseButton>
 
       <Popover
-        sx={{ mt: 2.5 }}
+        sx={{ mt: 2.5, width: 200 }}
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}

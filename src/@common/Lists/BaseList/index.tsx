@@ -55,7 +55,7 @@ const BaseList: React.FC<BaseListProps> = ({
           <ListSubheader
             component="div"
             {...listSubheader}
-            sx={{ lineHeight: 1, pt: 1, px: 1, pb: 1.5 }}
+            sx={{ lineHeight: 1, p: 1, mb: 0.5 }}
           />
         ) : undefined
       }

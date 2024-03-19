@@ -39,6 +39,7 @@ const HeaderAccount: React.FC<HeaderAccountProps> = ({
           borderStyle: "solid",
           borderColor: "transparent",
           boxShadow: theme.shadows[2],
+          cursor: "pointer",
           ml: 2,
         })}
         {...avatarProps}
