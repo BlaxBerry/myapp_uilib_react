@@ -4,7 +4,7 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import { useTheme } from "@mui/material/styles";
 import * as React from "react";
 
-import { BaseIconButton } from "@/@common";
+import { BaseButton } from "@/@common";
 import { ThemePaletteContext } from "../context/ThemePaletteContext";
 
 const ToggleThemeModeButton = () => {
@@ -12,21 +12,21 @@ const ToggleThemeModeButton = () => {
   const theme = useTheme();
 
   return (
-    <ButtonGroup disableElevation variant="outlined" sx={{ mx: 1 }}>
+    <ButtonGroup disableElevation variant="outlined" sx={{ mx: 0.5 }}>
       {/* light */}
-      <BaseIconButton
+      <BaseButton
         variant={theme.palette.mode === "light" ? "contained" : "outlined"}
         onClick={() => context?.setThemeMode?.("light")}
       >
         <LightModeOutlinedIcon />
-      </BaseIconButton>
+      </BaseButton>
       {/* dark */}
-      <BaseIconButton
+      <BaseButton
         variant={theme.palette.mode === "dark" ? "contained" : "outlined"}
         onClick={() => context?.setThemeMode?.("dark")}
       >
         <DarkModeOutlinedIcon />
-      </BaseIconButton>
+      </BaseButton>
     </ButtonGroup>
   );
 };

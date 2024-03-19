@@ -19,6 +19,34 @@ const meta = {
         { id: "list", text: "列表" },
       ],
     },
+    headerActions: {
+      toggleTranslation: {
+        show: true,
+        defaultValue: "en",
+        onClick: (language) => {
+          console.log("clicked ", language);
+        },
+        languagesList: [
+          {
+            id: "en",
+            text: "English",
+            avatarSrc:
+              "https://as2.ftcdn.net/v2/jpg/00/61/47/33/1000_F_61473310_GwaVCFCKeQdeRj05P88xlnO3dF5HiJRp.jpg",
+          },
+          {
+            id: "ja",
+            text: "Japanese",
+            avatarSrc:
+              "https://p1.hiclipart.com/preview/341/890/500/worldcup-flag-balls-32-icons-round-japan-flag.jpg",
+          },
+          {
+            id: "zh",
+            text: "Chinese",
+            avatarSrc: "https://ks-global.jp/img/cn.png",
+          },
+        ],
+      },
+    },
     headAccount: {
       avatarProps: {
         alt: "Account",

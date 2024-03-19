@@ -20,7 +20,10 @@ const HeaderBreadcrumbs: React.FC<HeaderBreadcrumbsProps> = ({
   return (
     <Breadcrumbs
       sx={{
-        display: "flex",
+        display: {
+          xs: "none",
+          md: "flex",
+        },
         alignItems: "center",
         "& .MuiBreadcrumbs-separator": { mx: 1.5 },
       }}
@@ -38,7 +41,7 @@ const HeaderBreadcrumbs: React.FC<HeaderBreadcrumbsProps> = ({
             variant="body2"
             sx={{
               display: "flex",
-              alignItems: "center",
+              alignItems: "flex-end",
               fontWeight: isActive ? 500 : 400,
             }}
           >

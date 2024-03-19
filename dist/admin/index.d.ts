@@ -3,4 +3,4 @@ export { default as AdminAppContent, type AdminAppContentProps, } from "./AdminA
 export { default as AdminAppFooter, type AdminAppFooterProps, } from "./AdminAppFooter";
 export { default as AdminAppHeader, type AdminAppHeaderProps, } from "./AdminAppHeader";
 export { default as AdminAppSideNav, type AdminAppSideNavProps, } from "./AdminAppSideNav";
-export { default as AdminLayout } from "./AdminLayout";
+export { default as AdminLayout, type AdminLayoutProps } from "./AdminLayout";

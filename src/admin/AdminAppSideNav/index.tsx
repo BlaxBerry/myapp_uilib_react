@@ -108,8 +108,10 @@ const AdminAppSideNav: React.FC<AdminAppSideNavProps> = ({
           }),
         })}
         listItemTextProps={(listItem) => ({
+          noWrap: true,
           sx: (theme) => ({
             opacity: isExpanded ? 1 : 0,
+
             transition: theme.transitions.create("all", {
               easing: theme.transitions.easing.sharp,
               duration: theme.transitions.duration.leavingScreen,

@@ -1,3 +1,7 @@
 import * as React from "react";
-declare const ToggleFullScreenButtonMemo: React.MemoExoticComponent<() => import("react/jsx-runtime").JSX.Element>;
+export type ToggleFullScreenButtonProps = {
+    show?: boolean;
+    onClick?: (isFullScreen: boolean) => void;
+};
+declare const ToggleFullScreenButtonMemo: React.MemoExoticComponent<({ show, onClick, }: ToggleFullScreenButtonProps) => import("react/jsx-runtime").JSX.Element>;
 export default ToggleFullScreenButtonMemo;

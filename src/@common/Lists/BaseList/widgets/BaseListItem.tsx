@@ -5,6 +5,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
+import Avatar from "@mui/material/Avatar";
 import type { BaseListItemData, BaseListProps } from "..";
 
 type BaseListItemProps = Pick<
@@ -28,6 +29,7 @@ const BaseListItem: React.FC<BaseListItemProps> = ({
   return (
     <ListItem disablePadding {...listItemProps}>
       <ListItemButton
+        selected={item.isActive}
         onClick={item.onClick}
         sx={(theme) => ({
           borderRadius: theme.shape.borderRadius,
@@ -36,18 +38,25 @@ const BaseListItem: React.FC<BaseListItemProps> = ({
         {...listItemButtonProps}
       >
         {/* icon */}
-        <ListItemIcon
-          sx={{
-            minWidth: 0,
-            mr: 2,
-          }}
-          {...listItemIconProps}
-        >
-          {item.icon}
-        </ListItemIcon>
+        {item.icon && (
+          <ListItemIcon sx={{ minWidth: 0, mr: 2 }} {...listItemIconProps}>
+            {item.icon}
+          </ListItemIcon>
+        )}
+        {item.avatarSrc && (
+          <Avatar
+            alt={item.id}
+            src={item.avatarSrc}
+            sx={{ width: 24, height: 24, mr: 1 }}
+          />
+        )}
 
         {/* text */}
-        <ListItemText {...listItemTextProps} primary={item.text} />
+        <ListItemText
+          primaryTypographyProps={{ noWrap: true }}
+          {...listItemTextProps}
+          primary={item.text}
+        />
       </ListItemButton>
     </ListItem>
   );

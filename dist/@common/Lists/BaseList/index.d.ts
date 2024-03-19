@@ -9,6 +9,7 @@ export type BaseListItemData = {
     id: string;
     text: string;
     icon?: React.ReactNode;
+    avatarSrc?: string;
     isActive?: boolean;
     onClick?: () => void;
 };

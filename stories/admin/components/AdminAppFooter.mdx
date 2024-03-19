@@ -17,7 +17,15 @@ function Component() {
   return (
     <AdminAppFooter
       copyright="©2024 BlaxBerry All Rights Reserved"
-      socialLinks={["github", "x"]}
+      showTopDivider={true}
+      socialLinks={[
+        {
+          type: "github",
+          link: "https://github.com/BlaxBerry/myapp_uilib_react",
+        },
+        { type: "x", link: "https://twitter.com/home" },
+        { type: "facebook", link: "https://www.facebook.com/" },
+      ]}
     />
   );
 }

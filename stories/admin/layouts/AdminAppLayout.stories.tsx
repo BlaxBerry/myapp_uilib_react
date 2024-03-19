@@ -22,16 +22,16 @@ export const ExampleBase: Stroy = {
   name: "基本使用",
 
   render: () => {
-    const handleRefreshPageContentData = React.useCallback(() => {
-      console.log("refresh page data");
-    }, []);
+    const handle = React.useCallback(() => {}, []);
 
     return (
       <AdminLayout
         appSideNavProps={AdminAppSideNavStoryMeta.args}
         appHeaderProps={AdminAppHeaderStoryMeta.args}
         appFooterProps={AdminAppFooterStoryMeta.args}
-        handleRefreshPageContentData={handleRefreshPageContentData}
+        customThemeOptions={{
+          customThemeMode: "dark",
+        }}
       >
         {[...new Array(20)].map((_, i) => (
           <p key={i}>{i} - xxx</p>

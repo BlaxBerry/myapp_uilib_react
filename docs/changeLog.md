@@ -3,7 +3,7 @@
 ## v0.0.0-alpha
 
 - @common
-  - BaseIconButton
+  - BaseButton
   - BaseControlledDialog
   - BaseUncontrolledDialog
   - BaseAccordion

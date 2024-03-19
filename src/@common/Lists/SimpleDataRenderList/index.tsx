@@ -8,10 +8,8 @@ import ListItemButton, {
 import ListItemIcon, {
   type ListItemIconProps,
 } from "@mui/material/ListItemIcon";
-import ListItemText, {
-  type ListItemTextProps,
-} from "@mui/material/ListItemText";
 
+import Typography, { type TypographyProps } from "@mui/material/Typography";
 import type { BaseListItemData } from "../BaseList";
 
 export type SimpleDataRenderListProps = {
@@ -19,7 +17,7 @@ export type SimpleDataRenderListProps = {
   listProps?: ListProps;
   listItemButtonProps?: (listItem?: BaseListItemData) => ListItemButtonProps;
   listItemIconProps?: (listItem?: BaseListItemData) => ListItemIconProps;
-  listItemTextProps?: (listItem?: BaseListItemData) => ListItemTextProps;
+  listItemTextProps?: (listItem?: BaseListItemData) => TypographyProps;
 };
 
 const SimpleDataRenderList: React.FC<SimpleDataRenderListProps> = ({
@@ -43,7 +41,7 @@ const SimpleDataRenderList: React.FC<SimpleDataRenderListProps> = ({
             </ListItemIcon>
 
             {/* text */}
-            <ListItemText primary={item.text} {...listItemTextProps?.(item)} />
+            <Typography {...listItemTextProps?.(item)}>{item.text}</Typography>
           </ListItemButton>
         </ListItem>
       ))}

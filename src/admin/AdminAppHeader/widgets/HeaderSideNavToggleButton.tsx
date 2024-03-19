@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { BaseIconButton } from "@/@common/Buttons";
+import { BaseButton } from "@/@common/Buttons";
 import FormatIndentDecreaseIcon from "@mui/icons-material/FormatIndentDecrease";
 import FormatIndentIncreaseIcon from "@mui/icons-material/FormatIndentIncrease";
 
@@ -16,13 +16,13 @@ const HeaderSideNavToggleButton: React.FC<HeaderSideNavToggleButtonProps> = ({
   toggleExpand,
 }) => {
   return (
-    <BaseIconButton disableElevation onClick={toggleExpand} sx={{ mr: 2 }}>
+    <BaseButton disableElevation onClick={toggleExpand} sx={{ mr: 2 }}>
       {isExpanded ? (
         <FormatIndentDecreaseIcon style={iconStyles} />
       ) : (
         <FormatIndentIncreaseIcon style={iconStyles} />
       )}
-    </BaseIconButton>
+    </BaseButton>
   );
 };
 

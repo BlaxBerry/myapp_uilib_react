@@ -20,4 +20,4 @@ export {
   type AdminAppSideNavProps,
 } from "./AdminAppSideNav";
 
-export { default as AdminLayout } from "./AdminLayout";
+export { default as AdminLayout, type AdminLayoutProps } from "./AdminLayout";

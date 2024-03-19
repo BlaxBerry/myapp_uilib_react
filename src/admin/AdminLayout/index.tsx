@@ -5,6 +5,7 @@ import {
 } from "@mui/material/styles";
 import * as React from "react";
 
+import useMediaQuery from "@mui/material/useMediaQuery";
 import AdminAppContent from "../AdminAppContent";
 import AdminAppFooter, { type AdminAppFooterProps } from "../AdminAppFooter";
 import AdminAppHeader, { type AdminAppHeaderProps } from "../AdminAppHeader";
@@ -14,17 +15,19 @@ import {
   type ThemeMode,
 } from "./context/ThemePaletteContext";
 import {
-  RefreshPageContentDataButton,
+  RefetchPageContentDataButton,
   ToggleFullScreenButton,
   ToggleThemeModeButton,
+  ToggleTranslationButton,
 } from "./widgets";
 
-type AdminLayoutProps = React.PropsWithChildren<{
+export type AdminLayoutProps = React.PropsWithChildren<{
   appSideNavProps: Omit<AdminAppSideNavProps, "isExpanded">;
   appHeaderProps: AdminAppHeaderProps;
   appFooterProps: AdminAppFooterProps;
-
-  handleRefreshPageContentData: () => void;
+  customThemeOptions: {
+    customThemeMode: ThemeMode;
+  };
 }>;
 
 const AdminLayout: React.FC<AdminLayoutProps> = ({
@@ -32,31 +35,22 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({
   appHeaderProps,
   appFooterProps,
   children,
-
-  handleRefreshPageContentData,
+  customThemeOptions: { customThemeMode = "light" },
 }) => {
   const [isExpanded, setIsExpanded] = React.useState<boolean>(false);
   const toggleExpand = React.useCallback(() => {
-    React.startTransition(() => {
-      setIsExpanded((s) => !s);
-    });
+    React.startTransition(() => setIsExpanded((s) => !s));
   }, []);
 
-  const [themeMode, setThemeMode] = React.useState<ThemeMode>("light");
+  const [themeMode, setThemeMode] = React.useState<ThemeMode>(customThemeMode);
   const toggleThemeMode = React.useCallback(() => {
     setThemeMode((themeMode) => (themeMode === "light" ? "dark" : "light"));
   }, []);
 
   const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: themeMode,
-        },
-      }),
+    () => createTheme({ palette: { mode: themeMode } }),
     [themeMode],
   );
-
   React.useEffect(() => {
     const body = document.body;
     if (themeMode === "dark") {
@@ -67,6 +61,11 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({
       body.style.color = "rgba(0, 0, 0, 0.87)";
     }
   }, [themeMode]);
+
+  const isMediaQueryXS = useMediaQuery(theme.breakpoints.up("xs"));
+  React.useEffect(() => {
+    if (isMediaQueryXS) setIsExpanded(false);
+  }, [isMediaQueryXS]);
 
   return (
     <ThemePaletteContext.Provider
@@ -94,13 +93,20 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({
                 children={
                   <>
                     {/* 1. refresh page content data */}
-                    <RefreshPageContentDataButton
-                      onClick={handleRefreshPageContentData}
+                    <RefetchPageContentDataButton
+                      {...appHeaderProps?.headerActions?.refetchPageContentData}
                     />
-                    {/* 2. switch theme mode */}
+                    {/* 2. toggle translation */}
+                    <ToggleTranslationButton
+                      {...appHeaderProps?.headerActions?.toggleTranslation}
+                    />
+                    {/* 3. switch theme mode */}
                     <ToggleThemeModeButton />
-                    {/* 3. toggle full screen */}
-                    <ToggleFullScreenButton />
+
+                    {/* 4. toggle full screen */}
+                    <ToggleFullScreenButton
+                      {...appHeaderProps?.headerActions?.toggleFullScreen}
+                    />
                   </>
                 }
               />

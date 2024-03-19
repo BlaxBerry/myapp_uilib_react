@@ -2,10 +2,18 @@ import FullscreenExitRoundedIcon from "@mui/icons-material/FullscreenExitRounded
 import FullscreenRoundedIcon from "@mui/icons-material/FullscreenRounded";
 import * as React from "react";
 
-import { BaseIconButton } from "@/@common";
+import { BaseButton } from "@/@common";
 import { toggleFullScreen } from "@/admin/tools";
 
-const ToggleFullScreenButton = () => {
+export type ToggleFullScreenButtonProps = {
+  show?: boolean;
+  onClick?: (isFullScreen: boolean) => void;
+};
+
+const ToggleFullScreenButton = ({
+  show = true,
+  onClick,
+}: ToggleFullScreenButtonProps) => {
   const [isFullScreen, setIsFullScreen] = React.useState(false);
 
   React.useEffect(() => {
@@ -20,9 +28,18 @@ const ToggleFullScreenButton = () => {
   }, []);
 
   return (
-    <BaseIconButton onClick={toggleFullScreen}>
+    <BaseButton
+      sx={{
+        display: show ? "flex" : "none",
+        mx: 0.5,
+      }}
+      onClick={() => {
+        toggleFullScreen();
+        onClick?.(isFullScreen);
+      }}
+    >
       {isFullScreen ? <FullscreenExitRoundedIcon /> : <FullscreenRoundedIcon />}
-    </BaseIconButton>
+    </BaseButton>
   );
 };
 

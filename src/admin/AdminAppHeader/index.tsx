@@ -3,6 +3,11 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Paper, { type PaperProps } from "@mui/material/Paper";
 
+import type {
+  RefetchPageContentDataButtonProps,
+  ToggleFullScreenButtonProps,
+  ToggleTranslationButtonProps,
+} from "../AdminLayout/widgets";
 import { AdminAppStyle } from "../tools";
 import {
   HeaderAccount,
@@ -18,6 +23,11 @@ export type AdminAppHeaderProps = React.PropsWithChildren<{
   headSideNav?: HeaderSideNavToggleButtonProps;
   headerBreadcrumbs?: HeaderBreadcrumbsProps;
   headAccount?: HeaderAccountProps;
+  headerActions?: {
+    toggleFullScreen?: ToggleFullScreenButtonProps;
+    toggleTranslation?: ToggleTranslationButtonProps;
+    refetchPageContentData?: RefetchPageContentDataButtonProps;
+  };
 }>;
 
 const AdminAppHeader: React.FC<AdminAppHeaderProps> = ({

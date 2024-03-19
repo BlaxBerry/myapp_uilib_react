@@ -7,7 +7,15 @@ const meta = {
   component: AdminAppFooter,
   args: {
     copyright: "©2024 BlaxBerry All Rights Reserved",
-    socialLinks: ["github", "x"],
+    showTopDivider: true,
+    socialLinks: [
+      {
+        type: "github",
+        link: "https://github.com/BlaxBerry/myapp_uilib_react",
+      },
+      { type: "facebook", link: "https://www.facebook.com/" },
+      { type: "x", link: "https://twitter.com/home" },
+    ],
   },
 } satisfies Meta<typeof AdminAppFooter>;
 

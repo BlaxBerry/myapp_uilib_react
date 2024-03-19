@@ -9,19 +9,28 @@ import { SOCIAL_LINKS, type SocialLinkItemType } from "../tools";
 
 export type AdminAppFooterProps = {
   footerProps?: PaperProps;
-
+  showTopDivider?: boolean;
   copyright: string;
-  socialLinks: Array<SocialLinkItemType>;
+  socialLinks: Array<{
+    type: SocialLinkItemType;
+    link: string;
+  }>;
 };
 
 const AdminAppFooter: React.FC<AdminAppFooterProps> = ({
   footerProps,
   copyright,
   socialLinks,
+  showTopDivider = true,
 }) => {
   return (
     <>
-      <Divider sx={{ my: 2 }} />
+      <Divider
+        sx={{
+          display: showTopDivider ? "block" : "none",
+          my: 2,
+        }}
+      />
 
       <Paper
         component="footer"
@@ -34,6 +43,7 @@ const AdminAppFooter: React.FC<AdminAppFooterProps> = ({
           justifyContent: "space-between",
           px: 2,
           pb: 2,
+          mt: showTopDivider ? 0 : 2,
         })}
         {...footerProps}
       >
@@ -49,15 +59,15 @@ const AdminAppFooter: React.FC<AdminAppFooterProps> = ({
         {/* social links */}
         {socialLinks && (
           <Stack direction="row" spacing={1} sx={{ pl: 2 }}>
-            {socialLinks?.map((linkType) => (
+            {socialLinks?.map((item) => (
               <IconButton
-                key={linkType}
+                key={item.type}
                 size="small"
-                href="https://github.com/BlaxBerry/myapp_uilib_react"
+                href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {SOCIAL_LINKS[linkType]}
+                {SOCIAL_LINKS[item.type]}
               </IconButton>
             ))}
           </Stack>
