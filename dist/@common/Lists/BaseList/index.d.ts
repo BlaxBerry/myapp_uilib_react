@@ -1,27 +1,9 @@
-import * as React from "react";
 import { type ListProps } from "@mui/material/List";
-import { type ListItemProps } from "@mui/material/ListItem";
-import { type ListItemButtonProps } from "@mui/material/ListItemButton";
-import { type ListItemIconProps } from "@mui/material/ListItemIcon";
-import { type ListItemTextProps } from "@mui/material/ListItemText";
 import { type ListSubheaderProps } from "@mui/material/ListSubheader";
-export type BaseListItemData = {
-    id: string;
-    text: string;
-    icon?: React.ReactNode;
-    avatarSrc?: string;
-    isActive?: boolean;
-    onClick?: () => void;
-};
-export type BaseListProps = {
-    data?: Array<BaseListItemData>;
-    extraData?: Array<BaseListItemData>;
+import * as React from "react";
+export type BaseListProps = React.PropsWithChildren<{
     listProps?: ListProps;
-    listSubheader?: ListSubheaderProps;
-    listItemProps?: ListItemProps;
-    listItemButtonProps?: ListItemButtonProps;
-    listItemIconProps?: ListItemIconProps;
-    listItemTextProps?: ListItemTextProps;
-};
+    listSubheaderProps?: ListSubheaderProps;
+}>;
 declare const BaseListMemo: React.NamedExoticComponent<BaseListProps>;
 export default BaseListMemo;

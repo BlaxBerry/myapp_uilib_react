@@ -1,8 +1,8 @@
 import * as React from "react";
-import type { BaseListItemData } from "@/@common/Lists/BaseList";
+import type { HeaderAccountListItemData } from "@/admin/AdminAppHeader/widgets/HeaderAccountListItem";
 export type ToggleTranslationButtonProps = {
     show?: boolean;
-    languagesList?: Array<BaseListItemData>;
+    languagesList?: Array<HeaderAccountListItemData>;
     defaultValue?: string;
     onClick?: (language: string) => void;
 };

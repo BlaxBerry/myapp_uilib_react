@@ -5,8 +5,21 @@ import * as Stories from "./BasePaper.stories.tsx";
 
 <Title>\<BasePaper></Title>
 
-<Subtitle>BasePaper 容器</Subtitle>
+<Subtitle>基础纸张容器</Subtitle>
 
 ```tsx
 import { BasePaper, type BasePaperProps } from "myapp_uilib_react";
+```
+
+### 基本使用
+
+<Story of={Stories.ExampleBase} />
+
+```tsx
+import * as React from "react";
+import { BasePaper } from "myapp_uilib_react";
+
+function Component() {
+  return <BasePaper>xxx</BasePaper>;
+}
 ```

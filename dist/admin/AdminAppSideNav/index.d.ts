@@ -1,6 +1,6 @@
 import { type PaperProps } from "@mui/material/Paper";
 import * as React from "react";
-import { type SimpleDataRenderListProps } from "@/@common/Lists";
+import type { SideNavigationProps } from "./widgets/SideNavigation";
 export type AdminAppSideNavProps = {
     sideNavProps?: PaperProps;
     isExpanded: boolean;
@@ -10,7 +10,7 @@ export type AdminAppSideNavProps = {
         onClick?: () => void;
     };
     navigation: {
-        list: SimpleDataRenderListProps["data"];
+        list: SideNavigationProps["data"];
     };
 };
 declare const AdminAppSideNavMemo: React.NamedExoticComponent<AdminAppSideNavProps>;

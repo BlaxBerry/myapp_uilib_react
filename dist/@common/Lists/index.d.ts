@@ -1,2 +1,2 @@
 export { default as BaseList, type BaseListProps } from "./BaseList";
-export { default as SimpleDataRenderList, type SimpleDataRenderListProps, } from "./SimpleDataRenderList";
+export { default as BaseListItem, type BaseListItemProps, } from "./BaseListItem";

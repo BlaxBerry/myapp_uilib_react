@@ -7,14 +7,11 @@ const BaseButton: React.FC<BaseButtonProps> = (props) => {
   return (
     <Button
       variant="outlined"
+      size="small"
       disableElevation
       {...props}
       sx={{
         borderRadius: 2,
-        p: 0,
-        height: 35,
-        width: 35,
-        minWidth: 35,
         ...props.sx,
       }}
     />

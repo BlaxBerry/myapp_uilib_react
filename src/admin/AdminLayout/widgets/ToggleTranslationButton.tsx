@@ -1,13 +1,14 @@
 import GTranslateRoundedIcon from "@mui/icons-material/GTranslateRounded";
 import * as React from "react";
 
-import { BaseButton, BaseList } from "@/@common";
-import type { BaseListItemData } from "@/@common/Lists/BaseList";
+import { BaseIconButton } from "@/@common";
+import HeaderAccountList from "@/admin/AdminAppHeader/widgets/HeaderAccountList";
+import type { HeaderAccountListItemData } from "@/admin/AdminAppHeader/widgets/HeaderAccountListItem";
 import { Popover } from "@mui/material";
 
 export type ToggleTranslationButtonProps = {
   show?: boolean;
-  languagesList?: Array<BaseListItemData>;
+  languagesList?: Array<HeaderAccountListItemData>;
   defaultValue?: string;
   onClick?: (language: string) => void;
 };
@@ -35,7 +36,7 @@ const ToggleTranslationButton = ({
 
   return (
     <>
-      <BaseButton
+      <BaseIconButton
         variant="outlined"
         sx={{
           display: show ? "flex" : "none",
@@ -44,7 +45,7 @@ const ToggleTranslationButton = ({
         onClick={handleOpen}
       >
         <GTranslateRoundedIcon />
-      </BaseButton>
+      </BaseIconButton>
 
       <Popover
         sx={{ mt: 2.5, width: 200 }}
@@ -66,7 +67,7 @@ const ToggleTranslationButton = ({
           },
         }}
       >
-        <BaseList
+        <HeaderAccountList
           data={languagesList?.map((item) => ({
             ...item,
             isActive: item.id === defaultValue,

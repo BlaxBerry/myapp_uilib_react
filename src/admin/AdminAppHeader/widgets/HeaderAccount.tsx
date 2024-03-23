@@ -2,12 +2,13 @@ import Avatar, { type AvatarProps } from "@mui/material/Avatar";
 import Popover, { type PopoverProps } from "@mui/material/Popover";
 import * as React from "react";
 
-import { BaseList, type BaseListProps } from "@/@common";
+import type { HeaderAccountListProps } from "./HeaderAccountList";
+import HeaderAccountList from "./HeaderAccountList";
 
 export type HeaderAccountProps = {
   avatarProps?: AvatarProps;
   popoverProps?: PopoverProps;
-  listProps?: BaseListProps;
+  listProps?: HeaderAccountListProps;
 };
 
 const HeaderAccount: React.FC<HeaderAccountProps> = ({
@@ -66,7 +67,7 @@ const HeaderAccount: React.FC<HeaderAccountProps> = ({
         }}
         {...popoverProps}
       >
-        <BaseList {...listProps} />
+        <HeaderAccountList {...listProps} />
       </Popover>
     </>
   );

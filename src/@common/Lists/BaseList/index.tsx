@@ -1,46 +1,18 @@
-import * as React from "react";
-
-import Divider from "@mui/material/Divider";
 import List, { type ListProps } from "@mui/material/List";
-import { type ListItemProps } from "@mui/material/ListItem";
-import { type ListItemButtonProps } from "@mui/material/ListItemButton";
-import { type ListItemIconProps } from "@mui/material/ListItemIcon";
-import { type ListItemTextProps } from "@mui/material/ListItemText";
 import ListSubheader, {
   type ListSubheaderProps,
 } from "@mui/material/ListSubheader";
-import BaseListItem from "./widgets/BaseListItem";
+import * as React from "react";
 
-export type BaseListItemData = {
-  id: string;
-  text: string;
-  icon?: React.ReactNode;
-  avatarSrc?: string;
-  isActive?: boolean;
-  onClick?: () => void;
-};
-
-export type BaseListProps = {
-  data?: Array<BaseListItemData>;
-  extraData?: Array<BaseListItemData>;
-
+export type BaseListProps = React.PropsWithChildren<{
   listProps?: ListProps;
-  listSubheader?: ListSubheaderProps;
-  listItemProps?: ListItemProps;
-  listItemButtonProps?: ListItemButtonProps;
-  listItemIconProps?: ListItemIconProps;
-  listItemTextProps?: ListItemTextProps;
-};
+  listSubheaderProps?: ListSubheaderProps;
+}>;
 
 const BaseList: React.FC<BaseListProps> = ({
-  data,
-  extraData,
+  children,
   listProps,
-  listSubheader,
-  listItemProps,
-  listItemButtonProps,
-  listItemIconProps,
-  listItemTextProps,
+  listSubheaderProps,
 }) => {
   return (
     <List
@@ -51,46 +23,16 @@ const BaseList: React.FC<BaseListProps> = ({
       })}
       {...listProps}
       subheader={
-        listSubheader ? (
+        listSubheaderProps ? (
           <ListSubheader
             component="div"
-            {...listSubheader}
-            sx={{ lineHeight: 1, p: 1, mb: 0.5 }}
+            {...listSubheaderProps}
+            sx={{ lineHeight: 1, p: 1, mb: 0.5, ...listSubheaderProps?.sx }}
           />
         ) : undefined
       }
     >
-      {data?.map((item) => (
-        <BaseListItem
-          key={item.id}
-          {...{
-            item,
-            listItemProps,
-            listItemButtonProps,
-            listItemIconProps,
-            listItemTextProps,
-          }}
-        />
-      ))}
-
-      {extraData && (
-        <>
-          <Divider sx={{ my: 1 }} />
-
-          {extraData?.map((item) => (
-            <BaseListItem
-              key={item.id}
-              {...{
-                item,
-                listItemProps,
-                listItemButtonProps,
-                listItemIconProps,
-                listItemTextProps,
-              }}
-            />
-          ))}
-        </>
-      )}
+      {children}
     </List>
   );
 };

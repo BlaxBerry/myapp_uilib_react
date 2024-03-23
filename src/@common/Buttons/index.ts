@@ -1,6 +1,12 @@
 export { default as BaseButton, type BaseButtonProps } from "./BaseButton";
 
 export {
-  default as BaseCapsuleButton,
-  type BaseCapsuleButtonProps,
-} from "./BaseCapsuleButton";
+  default as BaseIconButton,
+  type BaseIconButtonProps,
+} from "./BaseIconButton";
+
+export {
+  default as CapsuleButton,
+  SelectedCapsuleButton,
+  type CapsuleButtonProps,
+} from "./CapsuleButton";

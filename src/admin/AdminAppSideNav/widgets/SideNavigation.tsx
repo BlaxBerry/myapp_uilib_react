@@ -8,19 +8,23 @@ import ListItemButton, {
 import ListItemIcon, {
   type ListItemIconProps,
 } from "@mui/material/ListItemIcon";
-
 import Typography, { type TypographyProps } from "@mui/material/Typography";
-import type { BaseListItemData } from "../BaseList";
 
-export type SimpleDataRenderListProps = {
-  data: Array<BaseListItemData>;
+import type { HeaderAccountListItemData } from "../../AdminAppHeader/widgets/HeaderAccountListItem";
+
+export type SideNavigationProps = {
+  data: Array<HeaderAccountListItemData>;
   listProps?: ListProps;
-  listItemButtonProps?: (listItem?: BaseListItemData) => ListItemButtonProps;
-  listItemIconProps?: (listItem?: BaseListItemData) => ListItemIconProps;
-  listItemTextProps?: (listItem?: BaseListItemData) => TypographyProps;
+  listItemButtonProps?: (
+    listItem?: HeaderAccountListItemData,
+  ) => ListItemButtonProps;
+  listItemIconProps?: (
+    listItem?: HeaderAccountListItemData,
+  ) => ListItemIconProps;
+  listItemTextProps?: (listItem?: HeaderAccountListItemData) => TypographyProps;
 };
 
-const SimpleDataRenderList: React.FC<SimpleDataRenderListProps> = ({
+const SideNavigation: React.FC<SideNavigationProps> = ({
   data,
   listProps,
   listItemButtonProps,
@@ -49,5 +53,5 @@ const SimpleDataRenderList: React.FC<SimpleDataRenderListProps> = ({
   );
 };
 
-const SimpleDataRenderListMemo = React.memo(SimpleDataRenderList);
-export default SimpleDataRenderListMemo;
+const SideNavigationMemo = React.memo(SideNavigation);
+export default SideNavigationMemo;

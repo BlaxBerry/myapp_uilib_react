@@ -2,17 +2,51 @@
 
 ## v0.0.0-alpha
 
-- @common
-  - BaseButton
-  - BaseControlledDialog
-  - BaseUncontrolledDialog
-  - BaseAccordion
-  - BaseList
-  - BaseParagraph
-  - BasePaper
-- admin
-  - AdminAppLayout
-  - AdminAppHeader
-  - AdminAppSideNav
-  - AdminAppFooter
-  - AdminAppContent
+### @common
+
+| Buttons        |     |
+| -------------- | :-: |
+| BaseButton     | ✅  |
+| BaseIconButton | ✅  |
+| CapsuleButton  | ✅  |
+
+| Dialogs                |     |
+| ---------------------- | :-: |
+| BaseControlledDialog   | ✅  |
+| BaseUncontrolledDialog | ✅  |
+
+| Accordions    |     |
+| ------------- | :-: |
+| BaseAccordion | ✅  |
+
+| Paragraph     |     |
+| ------------- | :-: |
+| BaseParagraph | ✅  |
+
+| Containers |     |
+| ---------- | :-: |
+| BasePaper  | ✅  |
+| BaseGrid   | ✅  |
+
+| Lists        |     |
+| ------------ | :-: |
+| BaseList     | ✅  |
+| BaseListItem | ✅  |
+
+| Charts        |     |
+| ------------- | :-: |
+| BasePieChart  | ✅  |
+| BaseLineChart | ✅  |
+| BaseBarChart  | ✅  |
+
+---
+
+### admin
+
+| Layouts         |     |
+| --------------- | :-: |
+| AdminAppLayout  | ✅  |
+| AdminAppHeader  | 🕑  |
+| AdminAppSideNav | ✅  |
+| AdminAppFooter  | ✅  |
+| AdminAppContent | 🕑  |

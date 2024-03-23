@@ -1,24 +1,33 @@
 import * as React from "react";
 
+import Avatar from "@mui/material/Avatar";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
-import Avatar from "@mui/material/Avatar";
-import type { BaseListItemData, BaseListProps } from "..";
+import type { HeaderAccountListProps } from "./HeaderAccountList";
 
-type BaseListItemProps = Pick<
-  BaseListProps,
+export type HeaderAccountListItemData = {
+  id: string;
+  text: string;
+  icon?: React.ReactNode;
+  avatarSrc?: string;
+  isActive?: boolean;
+  onClick?: () => void;
+};
+
+export type HeaderAccountListItemProps = Pick<
+  HeaderAccountListProps,
   | "listItemProps"
   | "listItemButtonProps"
   | "listItemIconProps"
   | "listItemTextProps"
 > & {
-  item: BaseListItemData;
+  item: HeaderAccountListItemData;
 };
 
-const BaseListItem: React.FC<BaseListItemProps> = ({
+const HeaderAccountListItem: React.FC<HeaderAccountListItemProps> = ({
   item,
 
   listItemProps,
@@ -62,5 +71,5 @@ const BaseListItem: React.FC<BaseListItemProps> = ({
   );
 };
 
-const BaseListItemMemo = React.memo(BaseListItem);
-export default BaseListItemMemo;
+const HeaderAccountListItemMemo = React.memo(HeaderAccountListItem);
+export default HeaderAccountListItemMemo;

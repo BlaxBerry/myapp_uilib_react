@@ -5,11 +5,9 @@ import Paper, { type PaperProps } from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 
-import {
-  SimpleDataRenderList,
-  type SimpleDataRenderListProps,
-} from "@/@common/Lists";
 import { AdminAppStyle } from "../tools";
+import type { SideNavigationProps } from "./widgets/SideNavigation";
+import SideNavigation from "./widgets/SideNavigation";
 
 export type AdminAppSideNavProps = {
   sideNavProps?: PaperProps;
@@ -20,7 +18,7 @@ export type AdminAppSideNavProps = {
     onClick?: () => void;
   };
   navigation: {
-    list: SimpleDataRenderListProps["data"];
+    list: SideNavigationProps["data"];
   };
 };
 
@@ -87,7 +85,7 @@ const AdminAppSideNav: React.FC<AdminAppSideNavProps> = ({
       <Divider />
 
       {/* navigation list */}
-      <SimpleDataRenderList
+      <SideNavigation
         data={navigation?.list}
         listProps={{
           sx: { p: 1 },
